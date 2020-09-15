@@ -15,6 +15,21 @@
 //
 // -----------------------------------------------------------------------------
 
+.skip-to-main-link {
+    background: #fff;
+    color: $primary-color;
+    font-weight: 700;
+    left: 50%;
+    padding: 4px;
+    position: absolute;
+    transform: translate(-50%, -100%);
+    transition: transform 0.3s;
+
+    &:focus {
+        transform: translate(-50%, 0%);
+    }
+}
+
 .header {
     background-color: $header-bg;
     border-bottom: container("border");
@@ -22,11 +37,13 @@
     top: 0;
     width: 100%;
     z-index: zIndex("higher");
+    height: $header-height;
 
     @include breakpoint("medium") {
         border-bottom: container("border");
         overflow: visible;
         position: relative;
+        height: auto;
     }
 
     &.is-open {
@@ -42,6 +59,7 @@
     font-size: 0;   // 1
     margin: 0 remCalc($header-toggle-width); // 2
     text-align: center;
+    height: $header-height;
 
     @include breakpoint("small") { // 4
         margin-left: remCalc($header-toggle-width * 1.5);
@@ -62,14 +80,16 @@
         }
     }
 
-    > a {
+    &__link {
         @include clearfix;
         color: $storeName-color;
-        display: inline-block;
-        padding: $header-logo-paddingVertical 0;
+        height: inherit;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
         position: relative;
         text-decoration: none;
-        width: 60%;
+        width: 70%;
         z-index: zIndex("low");
 
         // scss-lint:disable NestingDepth
@@ -124,22 +144,17 @@
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    padding: remCalc(3px) 0;
     text-overflow: ellipsis;
     text-transform: uppercase;
     white-space: nowrap;
 
     @include breakpoint("small") {
         font-size: $fontSize-logo-medium;
-        padding-bottom: 0;
-        padding-top: 0;
     }
 
     @include breakpoint("medium") {
         display: inline;
         font-size: $fontSize-logo-large;
-        margin-left: 0;
-        margin-right: -(remCalc(2px)); // 3
         max-width: none;
         overflow: auto;
         white-space: normal;
@@ -152,6 +167,7 @@
 
 .header-logo-image-container {
     position: relative;
+    width: 100%;
 }
 
 .header-logo-image-container:after {

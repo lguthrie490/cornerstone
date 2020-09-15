@@ -2,9 +2,26 @@ import utils from '@bigcommerce/stencil-utils';
 import 'foundation-sites/js/foundation/foundation';
 import 'foundation-sites/js/foundation/foundation.reveal';
 import ImageGallery from '../product/image-gallery';
-import modalFactory, { showAlertModal } from '../global/modal';
+import modalFactory, { showAlertModal, modalTypes } from '../global/modal';
 import _ from 'lodash';
 import Wishlist from '../wishlist';
+import { normalizeFormData } from './utils/api';
+import { initRadioOptions } from './aria';
+import { isBrowserIE, convertIntoArray } from './utils/ie-helpers';
+
+const optionsTypesMap = {
+    INPUT_FILE: 'input-file',
+    INPUT_TEXT: 'input-text',
+    INPUT_NUMBER: 'input-number',
+    INPUT_CHECKBOX: 'input-checkbox',
+    TEXTAREA: 'textarea',
+    DATE: 'date',
+    SET_SELECT: 'set-select',
+    SET_RECTANGLE: 'set-rectangle',
+    SET_RADIO: 'set-radio',
+    SWATCH: 'swatch',
+    PRODUCT_LIST: 'product-list',
+};
 
 export default class ProductDetails {
     constructor($scope, context, productAttributesData = {}) {
@@ -22,6 +39,12 @@ export default class ProductDetails {
         const $productOptionsElement = $('[data-product-option-change]', $form);
         const hasOptions = $productOptionsElement.html().trim().length;
         const hasDefaultOptions = $productOptionsElement.find('[data-default]').length;
+
+        $('[data-product-attribute]').each((__, value) => {
+            const type = value.getAttribute('data-product-attribute');
+
+            this._makeProductVariantAccessible(value, type);
+        });
 
         $productOptionsElement.on('change', event => {
             this.productOptionsChanged(event);
@@ -56,23 +79,16 @@ export default class ProductDetails {
         this.previewModal = modalFactory('#previewModal')[0];
     }
 
-    /**
-     * https://stackoverflow.com/questions/49672992/ajax-request-fails-when-sending-formdata-including-empty-file-input-in-safari
-     * Safari browser with jquery 3.3.1 has an issue uploading empty file parameters. This function removes any empty files from the form params
-     * @param formData: FormData object
-     * @returns FormData object
-     */
-    filterEmptyFilesFromForm(formData) {
-        try {
-            for (const [key, val] of formData) {
-                if (val instanceof File && !val.name && !val.size) {
-                    formData.delete(key);
-                }
-            }
-        } catch (e) {
-            console.error(e); // eslint-disable-line no-console
+    _makeProductVariantAccessible(variantDomNode, variantType) {
+        switch (variantType) {
+        case optionsTypesMap.SET_RADIO:
+        case optionsTypesMap.SWATCH: {
+            initRadioOptions($(variantDomNode), '[type=radio]');
+            break;
         }
-        return formData;
+
+        default: break;
+        }
     }
 
     setProductVariant() {
@@ -126,15 +142,20 @@ export default class ProductDetails {
             if (type === 'set-rectangle' || type === 'set-radio' || type === 'swatch' || type === 'input-checkbox' || type === 'product-list') {
                 const checked = value.querySelector(':checked');
                 if (checked) {
+                    const getSelectedOptionLabel = () => {
+                        const productVariantslist = convertIntoArray(value.children);
+                        const matchLabelForCheckedInput = inpt => inpt.dataset.productAttributeValue === checked.value;
+                        return productVariantslist.filter(matchLabelForCheckedInput)[0];
+                    };
                     if (type === 'set-rectangle' || type === 'set-radio' || type === 'product-list') {
-                        const label = checked.labels[0].innerText;
+                        const label = isBrowserIE ? getSelectedOptionLabel().innerText.trim() : checked.labels[0].innerText;
                         if (label) {
                             options.push(`${optionTitle}:${label}`);
                         }
                     }
 
                     if (type === 'swatch') {
-                        const label = checked.labels[0].children[0];
+                        const label = isBrowserIE ? getSelectedOptionLabel().children[0] : checked.labels[0].children[0];
                         if (label) {
                             options.push(`${optionTitle}:${label.title}`);
                         }
@@ -165,7 +186,7 @@ export default class ProductDetails {
             if (view.attr('data-event-type')) {
                 view.attr('data-product-variant', productVariant);
             } else {
-                const productName = view.find('.productView-title')[0].innerText;
+                const productName = view.find('.productView-title')[0].innerText.replace(/"/g, '\\$&');
                 const card = $(`[data-name="${productName}"]`);
                 card.attr('data-product-variant', productVariant);
             }
@@ -271,7 +292,7 @@ export default class ProductDetails {
         if (_.isPlainObject(image)) {
             const zoomImageUrl = utils.tools.imageSrcset.getSrcset(
                 image.data,
-                { '1x': this.context.themeSettings.zoom_size },
+                { '1x': this.context.zoomSize },
                 /*
                     Should match zoom size used for data-zoom-image in
                     components/products/product-view.html
@@ -284,7 +305,7 @@ export default class ProductDetails {
 
             const mainImageUrl = utils.tools.imageSrcset.getSrcset(
                 image.data,
-                { '1x': this.context.themeSettings.product_size },
+                { '1x': this.context.productSize },
                 /*
                     Should match fallback image size used for the main product image in
                     components/products/product-view.html
@@ -388,7 +409,7 @@ export default class ProductDetails {
         this.$overlay.show();
 
         // Add item to cart
-        utils.api.cart.itemAdd(this.filterEmptyFilesFromForm(new FormData(form)), (err, response) => {
+        utils.api.cart.itemAdd(normalizeFormData(new FormData(form)), (err, response) => {
             const errorMessage = err || response.data.error;
 
             $addToCartBtn
@@ -410,7 +431,7 @@ export default class ProductDetails {
             if (this.previewModal) {
                 this.previewModal.open();
 
-                this.updateCartContent(this.previewModal, response.data.cart_item.id);
+                this.updateCartContent(this.previewModal, response.data.cart_item.id, () => this.previewModal.setupFocusableElements(modalTypes.PRODUCT_DETAILS));
             } else {
                 this.$overlay.show();
                 // if no modal, redirect to the cart page
