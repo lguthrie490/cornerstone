@@ -327,7 +327,6 @@ body {
 
 // Cards
 .home-cards {
-
   .home-cards_title {
     margin-bottom: $spacing-size-1;
     color: $black;
@@ -381,6 +380,47 @@ body {
     margin: 0;
     border: solid $darkblue4;
     border-width: 5px 0 0;
+  }
+}
+
+// Home Cards Lower
+.home-cards-lower {
+  margin: 6rem 0;
+
+  .home-cards_cards {
+    .pricing-table {
+      border: none;
+
+      .title {
+        color: $black;
+        font-weight: bold;
+        font-size: 21px;
+        line-height: 1.2;
+        margin: 1rem 0;
+      }
+
+      .description {
+        p {
+          margin-bottom: 0;
+        }
+      }
+
+      .readmore {
+        font-weight: bold;
+
+        a {
+          text-decoration: none;
+          margin: 0 auto;
+        }
+      }
+
+      li {
+        text-align: left;
+        background-color: $white;
+        border: none;
+        padding: 0 15px;
+      }
+    }
   }
 }
 
