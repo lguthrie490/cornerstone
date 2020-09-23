@@ -1,31 +1,15 @@
 <!-- @todo Queue Blog Posts, limit 3, if video then "Watch More"-->
 <section class="home-cards-lower">
     <div class="row home-cards_cards">
-        <div class="small-4 columns">
-            <ul class="pricing-table">
-                <img src="assets/img/home-aurx.png" alt="Bottle of Aurx">
-                <li class="title">How can adding Butyric Acid impact Autism?</li>
-                <li class="description"><p>The inability for ASD children to produce Butyric Acid sufficiently during fiber digestion influences gut-brain axis.*</p></li>
-                <li class="readmore"><a href="#">Read More</a></li>
-            </ul>
-        </div>
-
-        <div class="small-4 columns">
-            <ul class="pricing-table">
-                <img src="assets/img/home-curcumin.png" alt="Ground and sliced up curcumin root">
-                <li class="title">Absorbing Curcumin. What you need to know</li>
-                <li class="description"><p>A major barrier to Curcumin's clinical efficacy is its poor bioavailability.</p></li>
-                <li class="readmore"><a href="#">Read More</a></li>
-            </ul>
-        </div>
-
-        <div class="small-4 columns">
-            <ul class="pricing-table">
-                <img src="assets/img/home-al.png" alt="Video still of Al Czap, founder of Tesseract">
-                <li class="title">Webinar: Rethinking GI Health with Al Czap</li>
-                <li class="description"><p>Short chain fatty acids (in particular, butyrate) have play a major role in gastrointestinal health.*</p></li>
-                <li class="readmore"><a href="#">Read More</a></li>
-            </ul>
-        </div>
+        {{#each blog.recent_posts}}
+            <div class="small-4 columns">
+                <ul class="pricing-table">
+                    <img src="{{thumbnail.data}}" alt="{{thumbnail.alt}}">
+                    <li class="title">{{title}}</li>
+                    <li class="description"><p>{{summary}}</p></li>
+                    <li class="readmore"><a href="{{url}}">Read More</a></li>
+                </ul>
+            </div>
+        {{/each}}
     </div>
 </section>
