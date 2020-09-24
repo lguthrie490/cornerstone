@@ -14,7 +14,7 @@
                 {{#each categories}}
                 {{#if children}}
                 <li class="not-click has-dropdown{{#if is_active}} active{{/if}}">
-                    <a href="#">{{name}}</a>
+                    <a href="{{url}}">{{name}}</a>
                     <ul class="dropdown">
                         {{#each children}}
                         <li {{#if is_active}}class="active"{{/if}}>
@@ -25,7 +25,7 @@
                 </li>
                 {{else}}
                 <li {{#if is_active}}class="active"{{/if}}>
-                <a href="#">{{name}}</a>
+                    <a href="{{url}}">{{name}}</a>
                 </li>
                 {{/if}}
                 {{/each}}
