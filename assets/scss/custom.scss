@@ -60,34 +60,36 @@ body {
 // Mailing List Signup Banner
 .banner-signup {
   .banner {
-    margin-bottom: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    p {
-      font-weight: bold;
-      font-size: 18px;
+    .form-fieldset {
       margin-bottom: 0;
-    }
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-    input {
-      margin-bottom: 0;
-    }
+      p {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 0;
+      }
 
-    .form-input {
-      max-width: 200px;
-      margin-left: 1rem;
-    }
+      input {
+        margin-bottom: 0;
+      }
 
-    .button {
-      padding: 1rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      border: none;
+      .form-input {
+        max-width: 200px;
+        margin-left: 1rem;
+      }
 
-      &:hover {
-        background-color: $grey3;
+      .button {
+        padding: 1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        border: none;
+
+        &:hover {
+          background-color: $grey3;
+        }
       }
     }
   }
