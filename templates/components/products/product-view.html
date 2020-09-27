@@ -21,45 +21,46 @@
                     <span>{{product.call_for_price}}</span>
                 </p>
             {{/if}}
-            <div class="productView-price">
-                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                    {{> components/products/price price=product.price schema_org=schema}}
-                {{else}}
-                    {{> components/common/login-for-pricing}}
-                {{/or}}
-            </div>
-            {{{region name="product_below_price"}}}
-            <div class="productView-rating"{{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}{{/if}}>
-                {{#if settings.show_product_rating}}
-                    {{#if product.num_reviews '>' 0}}
-                        {{#if schema}}
-                            <meta itemprop="ratingValue" content="{{product.rating}}">
-                            <meta itemprop="ratingCount" content="{{product.num_reviews}}">
-                            <meta itemprop="reviewCount" content="{{product.num_reviews}}">
-                        {{/if}}
-                    {{/if}}
-                    {{> components/products/ratings rating=product.rating}}
-                    <span class="productView-reviewLink">
+            <div class="flexbox-container">
+                <div class="productView-price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{> components/products/price price=product.price schema_org=schema}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </div>
+
+                <div class="productView-rating"{{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}{{/if}}>
+                    {{#if settings.show_product_rating}}
                         {{#if product.num_reviews '>' 0}}
-                            <a href="{{product.url}}#product-reviews">
-                                {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
-                            </a>
-                        {{else}}
-                            {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                            {{#if schema}}
+                                <meta itemprop="ratingValue" content="{{product.rating}}">
+                                <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+                                <meta itemprop="reviewCount" content="{{product.num_reviews}}">
+                            {{/if}}
                         {{/if}}
-                    </span>
-                {{/if}}
-                {{#if settings.show_product_reviews}}
-                    <span class="productView-reviewLink">
-                        <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
-                           {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
-                           {{lang 'products.reviews.new'}}
-                        </a>
-                    </span>
-                    {{> components/products/modals/writeReview}}
-                {{/if}}
+                        {{> components/products/ratings rating=product.rating}}
+                        <span class="productView-reviewLink">
+                            {{#if product.num_reviews '>' 0}}
+                                <a href="{{product.url}}#product-reviews">
+                                    {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                                </a>
+                            {{else}}
+                                {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                            {{/if}}
+                        </span>
+                    {{/if}}
+                </div>
+
+                <div class="productView-stock">
+                    {{#if product.out_of_stock}}
+                        <p class="red">out of stock</p>
+                    {{else}}
+                        <p>in stock</p>
+                    {{/if}}
+                </div>
             </div>
-            {{product.detail_messages}}
+
             <dl class="productView-info">
 <!--                <dt class="productView-info-name sku-label"{{#unless product.sku}} style="display: none;"{{/unless}}>{{lang 'products.sku'}}</dt>-->
 <!--                <dd class="productView-info-value" data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd>-->
@@ -145,7 +146,6 @@
 
                 {{#if theme_settings.show_custom_fields_tabs '!==' true}}
                     {{#each product.custom_fields}}
-                        <dt class="productView-info-name">{{name}}:</dt>
                         <dd class="productView-info-value">{{{ sanitize value}}}</dd>
                     {{/each}}
                 {{/if}}
@@ -206,6 +206,7 @@
                         lazyload=../theme_settings.lazyload_mode
                     }}
                     </a>
+                    <hr class="thumbnail-underline">
                 </li>
             {{/each}}
         </ul>
