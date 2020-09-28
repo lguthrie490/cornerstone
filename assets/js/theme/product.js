@@ -58,6 +58,7 @@ export default class Product extends PageManager {
     readMore(originalHeight) {
         // @todo prevent screen from "Bouncing" on click
         const readMore = $('.read-more');
+        const readMoreButton = $('.read-more_button');
         const readMoreBox = readMore.parent();
 
         $(readMore).click(() => {
@@ -65,14 +66,18 @@ export default class Product extends PageManager {
                 readMoreBox.animate({
                     'max-height': 9999,
                 });
+
+                readMoreButton.html('Read Less');
             } else {
                 readMoreBox.animate({
                     'max-height': originalHeight,
                 });
-            }
-        });
 
-        return false;
+                readMoreButton.html('Read More');
+            }
+
+            return false;
+        });
     }
 
     productReviewHandler() {

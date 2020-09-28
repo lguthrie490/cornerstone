@@ -23,7 +23,11 @@ product:
 
         {{{region name="product_below_content"}}}
 
-        {{> components/products/product-testimonials}}
+        {{> components/products/product-testimonials }}
+
+        {{> components/common/signup-banner }}
+
+        {{> components/common/practitioner-banner }}
 
         {{#if product.videos.list.length}}
             {{> components/products/videos product.videos}}
@@ -32,8 +36,6 @@ product:
         {{#all settings.show_product_reviews theme_settings.show_product_reviews (if theme_settings.show_product_details_tabs '!==' true)}}
             {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
         {{/all}}
-
-        {{> components/products/tabs}}
     </div>
 {{/partial}}
 {{> layout/base}}
