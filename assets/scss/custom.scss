@@ -47,6 +47,14 @@ body {
   background-color: $purple1;
 }
 
+.banner-promo {
+  .banner {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
 // @todo needs testing on all sizes/browsers
 .banner-signup, .banner-practitioner, .banner-footer {
   width: 100vw;
@@ -163,8 +171,8 @@ body {
         height: 100%;
 
         img {
-          position: absolute;
-          top: -24px;
+          //position: absolute;
+          //top: -24px;
         }
       }
     }
