@@ -1,85 +1,92 @@
-<div class="contain-to-grid body navigation-logo">
-    <nav class="top-bar">
-        <ul class="title-area">
-            <li class="name logo-area">
+<div class="navigation-logo">
+    <nav class="navigation-logo-section">
+        <ul class="left">
+            <li>
                 <a href="{{urls.home}}"><img src="/assets/img/tessmed-logo.png" alt=""></a>
             </li>
         </ul>
-        <section class="top-bar-section">
-            <ul class="right">
-                <li class="navUser-item navUser-item--account">
-                    {{#if customer}}
-                    <a class="navUser-action"
-                       href="{{urls.account.index}}"
-                       aria-label="{{lang 'common.account'}}"
-                    >
-                        {{lang 'common.account'}}
-                    </a>
-                    <a class="navUser-action"
-                       href="{{urls.auth.logout}}"
-                       aria-label="{{lang 'common.logout'}}"
-                    >
-                        {{lang 'common.logout'}}
-                    </a>
-                    {{else}}
-                    <a class="navUser-action"
-                       href="{{urls.auth.login}}"
-                       aria-label="{{lang 'common.login'}}"
-                    >
-                        {{lang 'common.login'}}
-                    </a>
-                    {{#if settings.account_creation_enabled}}
-                </li>
-                <li class="navUser-item navUser-item--account">
-                    <a class="navUser-action"
-                       href="{{urls.auth.create_account}}"
-                       aria-label="{{lang 'common.sign_up'}}"
-                    >
-                        {{lang 'common.sign_up'}}
-                    </a>
-                    {{/if}}
-                    {{/if}}
-                </li>
 
-                <li>
-                    <form class="form" action="{{urls.search}}">
-                        <fieldset class="form-fieldset">
-                            <div class="form-field">
-                                <label class="is-srOnly" for="search_query">{{lang "search.quick_search.input_label"}}</label>
-                                <input class="form-input" data-search-quick name="search_query" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="{{lang 'search.quick_search.input_placeholder'}}" autocomplete="off">
-                            </div>
-                        </fieldset>
-                    </form>
-                    <section class="quickSearchResults" data-bind="html: results"></section>
-                </li>
+        <ul class="right">
+            <li class="navUser-item navUser-item--account">
+                {{#if customer}}
+                <a class="navUser-action"
+                   href="{{urls.account.index}}"
+                   aria-label="{{lang 'common.account'}}"
+                >
+                    {{lang 'common.account'}}
+                </a>
+                <a class="navUser-action"
+                   href="{{urls.auth.logout}}"
+                   aria-label="{{lang 'common.logout'}}"
+                >
+                    {{lang 'common.logout'}}
+                </a>
+                {{else}}
+                <a class="navUser-action"
+                   href="{{urls.auth.login}}"
+                   aria-label="{{lang 'common.login'}}"
+                >
+                    {{lang 'common.login'}}
+                </a>
+                {{#if settings.account_creation_enabled}}
+            </li>
+            <li class="navUser-item navUser-item--account">
+                <a class="navUser-action"
+                   href="{{urls.auth.create_account}}"
+                   aria-label="{{lang 'common.sign_up'}}"
+                >
+                    {{lang 'common.sign_up'}}
+                </a>
+                {{/if}}
+                {{/if}}
+            </li>
 
-                <li class="navUser-item">
-                    <a class="navUser-action navUser-action--quickSearch"
-                       href="#" data-search="quickSearch"
-                       aria-controls="quickSearch"
-                       aria-expanded="false"
-                       aria-label="{{lang 'common.search'}}"
-                    >
-                        {{lang 'common.search'}}
-                    </a>
-                </li>
+            <li class="navUser-item navUser-item--cart">
+                <a class="navUser-action"
+                   data-cart-preview
+                   data-dropdown="cart-preview-dropdown"
+                   data-options="align:right"
+                   href="{{urls.cart}}"
+                   aria-label="{{lang 'cart.nav_aria_label'}}"
+                >
+                    <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span>
+                    <span class="countPill cart-quantity"></span>
+                </a>
 
-                <li class="navUser-item navUser-item--cart">
-                    <a class="navUser-action"
-                       data-cart-preview
-                       data-dropdown="cart-preview-dropdown"
-                       data-options="align:right"
-                       href="{{urls.cart}}"
-                       aria-label="{{lang 'cart.nav_aria_label'}}"
-                    >
-                        <span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span>
-                        <span class="countPill cart-quantity"></span>
-                    </a>
+                <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+            </li>
+            <li class="cart-logo">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                </svg>
+            </li>
 
-                    <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
-                </li>
+            <li>
+                <form class="form" action="{{urls.search}}">
+                    <fieldset class="form-fieldset">
+                        <div class="form-field">
+                            <label class="is-srOnly" for="search_query">{{lang "search.quick_search.input_label"}}</label>
+                            <input class="form-input" data-search-quick name="search_query" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="{{lang 'search.quick_search.input_placeholder'}}" autocomplete="off">
+                        </div>
+                    </fieldset>
+                </form>
+                <section class="quickSearchResults" data-bind="html: results"></section>
+            </li>
 
-            </ul>
-        </section>
+            <li class="navUser-item">
+                <a class="navUser-action navUser-action--quickSearch"
+                   href="#" data-search="quickSearch"
+                   aria-controls="quickSearch"
+                   aria-expanded="false"
+                   aria-label="{{lang 'common.search'}}"
+                >
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                    </svg>
+                </a>
+            </li>
+
+        </ul>
     </nav>
 </div>
