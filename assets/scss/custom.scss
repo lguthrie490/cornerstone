@@ -69,6 +69,7 @@ body {
 .banner-signup {
   .banner {
     .form-fieldset {
+      width: 100%;
       margin-bottom: 0;
       display: inline-flex;
       align-items: center;
@@ -160,49 +161,89 @@ body {
 .header {
   border: none;
 }
+
+// Top Portion / Logo Section
 .navigation-logo {
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
+  min-height: 100px;
+  background: $white;
 
-  .top-bar {
-    .title-area {
-      .logo-area {
-        width: 500px;
-        height: 100%;
+  .navigation-logo-section {
+    margin: 2rem auto 0;
+    padding: 0 6rem;
+    max-width: 91.71429rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        img {
-          //position: absolute;
-          //top: -24px;
+    .left {
+      ul {
+        margin: 0;
+      }
+    }
+
+    .right {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+
+      .cart-logo {
+        margin-right: 1rem;
+      }
+
+      .form-fieldset {
+        .form-field {
+          input {
+            border: none;
+          }
+        }
+      }
+
+      .form, .form-field {
+        margin-bottom: 0;
+      }
+
+      input {
+        margin: 0;
+      }
+    }
+
+    .left, .right {
+      li {
+        list-style: none;
+
+        a {
+          font-weight: normal;
+          text-transform: none;
+          background: $white;
+          color: $black;
         }
       }
     }
   }
 }
 
-.navigation-main, .navigation-logo {
+// Bottom Portion / Actual nav section
+
+.navigation-main {
   background: $white;
 
   .top-bar {
-    background: $white;
+    .title-area {
+      background-color: $white;
+    }
 
     .top-bar-section {
+      background-color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       li {
-        background: $white;
-      }
-
-      ul {
-        display: table;
-        margin: 0 auto;
-      }
-
-      ul li {
-        display: table-cell;
-      }
-
-      li a {
-        background: $white;
-        text-decoration: none;
-        color: $black;
+        a {
+          background-color: $white;
+          color: $black;
+          text-decoration: none;
+        }
       }
     }
   }
