@@ -65,6 +65,7 @@ export default class StencilDropdown {
         }).on('close.fndtn.reveal', '[data-reveal]', () => {
             modalOpened = false;
         }).on('click', '[data-drop-down-close]', () => {
+            // eslint-disable-next-line no-console
             modalOpened = false;
             this.hide($container);
         });

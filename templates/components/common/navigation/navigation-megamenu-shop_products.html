@@ -1,0 +1,232 @@
+<div class="navigation-nav_link">
+    <p>Shop Products</p>
+    <div id="megamenu" class="megamenu-dropdown">
+        <div class="megamenu-dropdown_content megamenu-shop_products container">
+
+            <div class="row">
+                <div class="small-4 columns shop_products-left">
+                    <p class="shop_products-featured-text">Featured</p>
+                    <article class="card">
+                        <a href="{{products.featured.[1].url}}">
+                            <div class="card-img-container">
+                                {{> components/common/responsive-img
+                                        image=products.featured.[1].image
+                                        fallback_size=theme_settings.productgallery_size
+                                        lazyload=theme_settings.lazyload_mode
+                                        default_image=theme_settings.default_image_product
+                                }}
+                            </div>
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="{{products.featured.[1].url}}">{{products.featured.[1].name}}</a>
+                            </h4>
+
+                            <div class="card-text" data-test-info-type="price">
+                                {{#each products.featured.[1].custom_fields}}
+                                    {{#if name '===' 'featured_description'}}
+                                        {{{ sanitize value }}} <br>
+                                    {{/if}}
+                                {{/each}}
+                                <a href="{{products.featured.[1].url}}"><b>Shop Now</b></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="small-4 columns shop_products-center">
+                    <article class="card center-column">
+                        <a href="{{products.featured.[2].url}}">
+                            <div class="card-img-container">
+                                {{> components/common/responsive-img
+                                        image=products.featured.[1].image
+                                        fallback_size=theme_settings.productgallery_size
+                                        lazyload=theme_settings.lazyload_mode
+                                        default_image=theme_settings.default_image_product
+                                }}
+                            </div>
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="{{products.featured.[2].url}}">{{products.featured.[2].name}}</a>
+                            </h4>
+
+                            <div class="card-text" data-test-info-type="price">
+                                {{#each products.featured.[2].custom_fields}}
+                                    {{#if name '===' 'featured_description'}}
+                                        {{{ sanitize value }}} <br>
+                                    {{/if}}
+                                {{/each}}
+                                <a href="{{products.featured.[2].url}}"><b>Shop Now</b></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card center-column">
+                        <a href="{{products.featured.[3].url}}">
+                            <div class="card-img-container">
+                                {{> components/common/responsive-img
+                                        image=products.featured.[3].image
+                                        fallback_size=theme_settings.productgallery_size
+                                        lazyload=theme_settings.lazyload_mode
+                                        default_image=theme_settings.default_image_product
+                                }}
+                            </div>
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a href="{{products.featured.[3].url}}">{{products.featured.[3].name}}</a>
+                            </h4>
+
+                            <div class="card-text" data-test-info-type="price">
+                                {{#each products.featured.[3].custom_fields}}
+                                    {{#if name '===' 'featured_description'}}
+                                        {{{ sanitize value }}} <br>
+                                    {{/if}}
+                                {{/each}}
+                                <a href="{{products.featured.[3].url}}"><b>Shop Now</b></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+            <!-- @todo put in order -->
+                <div class="small-4 columns shop_products-right">
+                    <div class="row">
+                        <div class="small-6 columns">
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{products.featured.[4].url}}">{{products.featured.[4].name}}</a>
+                                    </h4>
+                                    <div class="card-text" data-test-info-type="price">
+                                        {{#each products.featured.[4].custom_fields}}
+                                            {{#if name '===' 'featured_description'}}
+                                                {{{ sanitize value }}} <br>
+                                            {{/if}}
+                                        {{/each}}
+                                        <a href="{{products.featured.[4].url}}"><b>Buy Now</b></a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{products.featured.[5].url}}">{{products.featured.[5].name}}</a>
+                                    </h4>
+                                    <div class="card-text" data-test-info-type="price">
+                                        {{#each products.featured.[5].custom_fields}}
+                                            {{#if name '===' 'featured_description'}}
+                                                {{{ sanitize value }}} <br>
+                                            {{/if}}
+                                        {{/each}}
+                                        <a href="{{products.featured.[5].url}}"><b>Buy Now</b></a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{products.featured.[6].url}}">{{products.featured.[6].name}}</a>
+                                    </h4>
+                                    <div class="card-text" data-test-info-type="price">
+                                        {{#each products.featured.[6].custom_fields}}
+                                            {{#if name '===' 'featured_description'}}
+                                                {{{ sanitize value }}} <br>
+                                            {{/if}}
+                                        {{/each}}
+                                        <a href="{{products.featured.[6].url}}"><b>Buy Now</b></a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{products.featured.[7].url}}">{{products.featured.[7].name}}</a>
+                                    </h4>
+                                    <div class="card-text" data-test-info-type="price">
+                                        {{#each products.featured.[7].custom_fields}}
+                                            {{#if name '===' 'featured_description'}}
+                                                {{{ sanitize value }}} <br>
+                                            {{/if}}
+                                        {{/each}}
+                                        <a href="{{products.featured.[7].url}}"><b>Learn More »</b></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="small-6 columns">
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{products.featured.[3].url}}">{{products.featured.[3].name}}</a>
+                                    </h4>
+                                    <div class="card-text" data-test-info-type="price">
+                                        {{#each products.featured.[3].custom_fields}}
+                                            {{#if name '===' 'featured_description'}}
+                                                {{{ sanitize value }}} <br>
+                                            {{/if}}
+                                        {{/each}}
+                                        <a href="{{products.featured.[3].url}}"><b>Shop Now</b></a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{products.featured.[6].url}}">{{products.featured.[6].name}}</a>
+                                    </h4>
+                                    <div class="card-text" data-test-info-type="price">
+                                        {{#each products.featured.[6].custom_fields}}
+                                            {{#if name '===' 'featured_description'}}
+                                                {{{ sanitize value }}} <br>
+                                            {{/if}}
+                                        {{/each}}
+                                        <a href="{{products.featured.[6].url}}"><b>Buy Now</b></a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{products.featured.[7].url}}">{{products.featured.[7].name}}</a>
+                                    </h4>
+                                    <div class="card-text" data-test-info-type="price">
+                                        {{#each products.featured.[7].custom_fields}}
+                                            {{#if name '===' 'featured_description'}}
+                                                {{{ sanitize value }}} <br>
+                                            {{/if}}
+                                        {{/each}}
+                                        <a href="{{products.featured.[7].url}}"><b>Learn More »</b></a>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="{{products.featured.[3].url}}">{{products.featured.[3].name}}</a>
+                                    </h4>
+                                    <div class="card-text" data-test-info-type="price">
+                                        {{#each products.featured.[3].custom_fields}}
+                                            {{#if name '===' 'featured_description'}}
+                                                {{{ sanitize value }}} <br>
+                                            {{/if}}
+                                        {{/each}}
+                                        <a href="{{products.featured.[3].url}}"><b>Shop Now</b></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="banners banners-shopall">
+            <div class="banner">
+                <p>Shop All >></p>
+            </div>
+        </div>
+    </div>
+</div>
+

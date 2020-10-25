@@ -2,7 +2,7 @@
     <nav class="navigation-logo-section">
         <ul class="left">
             <li>
-                <a href="{{urls.home}}"><img src="/assets/img/tessmed-logo.png" alt=""></a>
+                <a href="{{urls.home}}"><img src="/assets/img/scaled/1x/Tesseract_logo_header.png" srcset="/assets/img/scaled/1x/Tesseract_logo_header.png 1x, /assets/img/scaled/2x/Tesseract_logo_header@2x.png 2x, /assets/img/scaled/3x/Tesseract_logo_header@3x.png 3x, /assets/img/scaled/4x/Tesseract_logo_header@4x.png 4x" alt="Tesseract Logo"></a>
             </li>
         </ul>
 
@@ -70,12 +70,12 @@
                         </div>
                     </fieldset>
                 </form>
-                <section class="quickSearchResults" data-bind="html: results"></section>
+                <section class="quickSearchResults" id="quickSearchResults" data-bind="html: results"></section>
             </li>
 
             <li class="navUser-item">
                 <a class="navUser-action navUser-action--quickSearch"
-                   href="#" data-search="quickSearch"
+                   href="#"
                    aria-controls="quickSearch"
                    aria-expanded="false"
                    aria-label="{{lang 'common.search'}}"

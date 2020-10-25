@@ -6,6 +6,7 @@ export default function () {
     const TOP_STYLING = 'top: 49px;';
     const $quickSearchResults = $('.quickSearchResults');
     const $quickSearchDiv = $('#quickSearch');
+    const $quickSearchResultsDiv = $('#quickSearchResults');
     const $searchQuery = $('#search_query');
     const stencilDropDownExtendables = {
         hide: () => {
@@ -17,7 +18,7 @@ export default function () {
         },
     };
     const stencilDropDown = new StencilDropDown(stencilDropDownExtendables);
-    stencilDropDown.bind($('[data-search="quickSearch"]'), $quickSearchDiv, TOP_STYLING);
+    stencilDropDown.bind($('[data-search="quickSearch"]'), $quickSearchResultsDiv, TOP_STYLING);
 
     stencilDropDownExtendables.onBodyClick = (e, $container) => {
         // If the target element has this data tag or one of it's parents, do not close the search results
