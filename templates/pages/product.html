@@ -8,6 +8,9 @@ product:
         limit: {{theme_settings.productpage_related_products_count}}
     similar_by_views:
         limit: {{theme_settings.productpage_similar_by_views_count}}
+products:
+    featured:
+        limit: 8
 ---
 {{inject "productId" product.id}}
 {{#partial "page"}}
