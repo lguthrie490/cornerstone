@@ -397,6 +397,29 @@ body {
           .banners-shopall {
             background-color: $banner_purple;
           }
+
+          .megamenu-dropdown_content {
+
+
+            .card {
+              display: flex;
+              justify-content: space-evenly;
+              //width: 320px;
+
+              .card-img-container {
+                width: 120px;
+              }
+
+              .card-body {
+                //max-height: 300px;
+
+                .card-text {
+                  line-height: 1;
+                  font-size: 12px;
+                }
+              }
+            }
+          }
         }
       }
     }
