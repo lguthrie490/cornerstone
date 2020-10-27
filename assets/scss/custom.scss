@@ -22,6 +22,12 @@ $lightgrey: rgb(205,214,218);
 $menu_darkblue: rgb(41,66,110);
 $menu_darkblue-hover: rgb(71,105,153);
 
+$signin_darkblue: rgb(21,29,75);
+$signin-text_darkblue: rgb(41,66,110);
+$signin-text_darkblue_hover: rgb(54, 73, 109);
+$signin-create_red: rgb(255,75,26);
+$signin-create_red_hover: rgb(255, 151, 125);
+
 
 // Colours -move to _colours.scss
 $dark-text: #171c21;
@@ -448,6 +454,96 @@ body {
     }
   }
 }
+// -----------------------------------------------------------------------------
+//
+// Login Modal
+//
+// -----------------------------------------------------------------------------
+body .modal-background {
+  background-image: linear-gradient(rgba(1,1,1,1), rgba(51,51,51,0));
+}
+
+.login-modal {
+  // !important needed for override
+  top: 40% !important;
+  right: 50%;
+  max-width: 300px;
+  padding: 10px;
+
+  .close-reveal-modal {
+    text-decoration: none;
+    text-align: right;
+    display: block;
+    width: 100%;
+  }
+
+  .modal-content {
+    .login-row {
+      margin: 0;
+
+      h2 {
+        font-size: 20px;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 2rem;
+      }
+
+      .login-form {
+        margin: 0;
+        width: 100%;
+
+        .form-field {
+          input {
+            background-color: $white;
+            border-width: 2px;
+            border-color: $signin_darkblue;
+
+            &::placeholder {
+              color: $signin-text_darkblue;
+            }
+          }
+        }
+
+        .bottom, input {
+          margin-bottom: 0;
+        }
+
+        .forgot-password {
+          text-decoration: none;
+          color: $signin-text_darkblue;
+          font-weight: bold;
+          float: right;
+          margin-bottom: 3rem;
+        }
+
+        .form-actions {
+          .button {
+            background-color: $signin-text_darkblue;
+            width: 100%;
+
+            &:hover {
+              background-color: $signin-text_darkblue_hover;
+            }
+          }
+        }
+
+        .form-signup {
+          .create-account {
+            color: $signin-create_red;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+
+            &:hover {
+              color: $signin-create_red_hover;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 
 // -----------------------------------------------------------------------------
 //

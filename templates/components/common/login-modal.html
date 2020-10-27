@@ -1,0 +1,35 @@
+<div id="loginModal" class="login modal reveal-modal login-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <a class="close-reveal-modal" aria-label="Close">X</a>
+    {{#if forms.login.error}}
+        {{> components/common/alert-error forms.login.error}}
+    {{/if}}
+    {{#if forms.login.success}}
+        {{> components/common/alert-success forms.login.success}}
+    {{/if}}
+
+    <div class="login-row">
+        <h2 id="modalTitle">Log In to Your Account</h2>
+        <form class="login-form form" action="{{urls.auth.check_login}}" method="post">
+            {{inject 'useValidEmail' (lang 'forms.validate.common.email_address')}}
+            {{inject 'enterPass' (lang 'forms.validate.common.password')}}
+            <div class="form-field">
+                <input class="form-input" placeholder="{{lang 'login.field_email'}}" name="login_email" id="login_email" type="email">
+            </div>
+            <div class="form-field bottom">
+                <input class="form-input" placeholder="{{lang 'login.field_password'}}" id="login_pass" type="password" name="login_pass" autocomplete="off">
+            </div>
+            <a class="forgot-password" href="{{urls.auth.forgot_password}}">forgot?</a>
+            <div class="form-actions">
+                <input type="submit" class="button button--primary" value="Log in">
+            </div>
+            <div class="form-signup">
+                <a class="create-account"
+                   href="{{urls.auth.create_account}}"
+                   aria-label="{{lang 'common.sign_up'}}"
+                >
+                    Create an Account
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
