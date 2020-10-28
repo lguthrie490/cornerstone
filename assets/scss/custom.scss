@@ -31,6 +31,15 @@ $signin-text_darkblue_hover: rgb(54, 73, 109);
 $signin-create_red: rgb(255,75,26);
 $signin-create_red_hover: rgb(255, 151, 125);
 
+$carousel-button_lightblue: rgb(176,210,235);
+$carousel-button-text_darkblue: rgb(35,31,32);
+$carousel-button-hover_lightblue: rgb(150,182,220);
+$carousel-button-hover-text_darkblue: rgb(41,66,110);
+
+$homecards-button_darkblue: rgb(41,66,110);
+$homecards-button_text: #ffffff;
+$homecards-button-hover_darkblue: rgb(71,105,153);
+$homecards-button-hover_text: rgb(177,211,236);
 
 // Colours -move to _colours.scss
 $dark-text: #171c21;
@@ -783,14 +792,15 @@ body .modal-background {
         padding: 20px 35px;
         border: none;
         border-radius: 0;
-        background-color: $lightblue3;
-        color: $black;
+        background-color: $carousel-button_lightblue;
+        color: $carousel-button-text_darkblue;
         font-weight: bold;
         text-transform: uppercase;
         font-size: 16px;
 
         &:hover {
-          background-color: $lightblue1;
+          color: $carousel-button-hover-text_darkblue;
+          background-color: $carousel_button-hover_lightblue;
         }
       }
     }
@@ -839,16 +849,16 @@ body .modal-background {
     }
 
     .button {
-      background-color: $darkblue4;
-      color: #ffffff;
+      background-color: $homecards-button_darkblue;
+      color: $homecards-button_text;
       border: none;
       border-radius: 0;
       width: 100%;
       font-size: 20px;
 
       &:hover {
-        background-color: $darkblue1;
-        color: $grey3;
+        background-color: $homecards-button-hover_darkblue;
+        color: $homecards-button-hover_text;
       }
     }
   }
