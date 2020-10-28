@@ -308,6 +308,7 @@ body {
         .nav-link {
           line-height: 45px;
           margin-bottom: 0;
+          cursor: default;
         }
 
         & .megamenu-dropdown:hover > &,
@@ -343,17 +344,27 @@ body {
               display: flex;
               justify-content: center;
               align-content: space-between;
-              //margin-bottom: 3rem;
+              margin-bottom: 1rem;
 
               .column-health_functions {
                 width: 14.28%;
-                margin: 0 10px;
+                margin-top: 0;
+                margin-bottom: 0;
+                margin-left: 25px;
+                //margin-right: 25px;
                 line-height: 1.9;
 
+                p {
+                  font-size: 12px;
+                  margin-bottom: 1.1px;
+                }
+
                 a {
+                  font-size: 12px;
                   display: block;
                   text-decoration: none;
                   color: $menu_darkblue;
+                  line-height: 1.9;
 
                   &:hover {
                     color: $menu_darkblue-hover;
@@ -365,8 +376,9 @@ body {
                 width: 0;
                 border-top: 0;
                 border-right: 2px solid $lightgrey;
-                margin: 10px 0;
-                height: 10rem;
+                //margin: 10px 0;
+                height: initial;
+                margin-bottom: 10px;
               }
             }
 
@@ -448,10 +460,12 @@ body {
                 .card-text {
                   white-space: nowrap;
                   overflow: hidden;
-                  max-width: 150px;
+                  width: 150px;
 
                   p {
                     font-size: 12px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                   }
                 }
               }
@@ -595,6 +609,10 @@ body .modal-background {
           font-weight: bold;
           float: right;
           margin-bottom: 3rem;
+
+          &:hover {
+            color: $signin-text_darkblue_hover;
+          }
         }
 
         .form-actions {
@@ -609,10 +627,14 @@ body .modal-background {
         }
 
         .form-signup {
+          text-align: center;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+
           .create-account {
             color: $signin-create_red;
             font-weight: bold;
-            text-align: center;
+            //text-align: center;
             text-decoration: none;
 
             &:hover {

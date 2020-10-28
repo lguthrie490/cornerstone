@@ -7,6 +7,38 @@
                 <div class="small-4 columns shop_products-left">
                     <p class="shop_products-featured-text">Featured</p>
                     <article class="card left-card">
+                        <a href="{{products.featured.[0].url}}">
+                            <div class="card-img-container">
+                                {{> components/common/responsive-img
+                                        image=products.featured.[0].image
+                                        fallback_size=theme_settings.productgallery_size
+                                        lazyload=theme_settings.lazyload_mode
+                                        default_image=theme_settings.default_image_product
+                                }}
+                            </div>
+                        </a>
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h4 class="card-title">
+                                    <a href="{{products.featured.[0].url}}">{{products.featured.[0].name}}</a>
+                                </h4>
+
+                                <div class="card-summary">
+                                    {{#each products.featured.[0].custom_fields}}
+                                        {{#if name '===' 'featured_description'}}
+                                            <p>{{{ sanitize value }}} </p><br>
+                                        {{/if}}
+                                    {{/each}}
+
+                                    <a href="{{products.featured.[0].url}}">Learn More »</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="small-4 columns shop_products-center">
+                    <article class="card center-column">
                         <a href="{{products.featured.[1].url}}">
                             <div class="card-img-container">
                                 {{> components/common/responsive-img
@@ -23,21 +55,18 @@
                                     <a href="{{products.featured.[1].url}}">{{products.featured.[1].name}}</a>
                                 </h4>
 
-                                <div class="card-summary">
+                                <div class="card-summary" data-test-info-type="price">
                                     {{#each products.featured.[1].custom_fields}}
                                         {{#if name '===' 'featured_description'}}
                                             <p>{{{ sanitize value }}} </p><br>
                                         {{/if}}
                                     {{/each}}
-
                                     <a href="{{products.featured.[1].url}}">Learn More »</a>
                                 </div>
                             </div>
                         </div>
                     </article>
-                </div>
 
-                <div class="small-4 columns shop_products-center">
                     <article class="card center-column">
                         <a href="{{products.featured.[2].url}}">
                             <div class="card-img-container">
@@ -66,40 +95,28 @@
                             </div>
                         </div>
                     </article>
-
-                    <article class="card center-column">
-                        <a href="{{products.featured.[3].url}}">
-                            <div class="card-img-container">
-                                {{> components/common/responsive-img
-                                        image=products.featured.[3].image
-                                        fallback_size=theme_settings.productgallery_size
-                                        lazyload=theme_settings.lazyload_mode
-                                        default_image=theme_settings.default_image_product
-                                }}
-                            </div>
-                        </a>
-                        <div class="card-body">
-                            <div class="card-text">
-                                <h4 class="card-title">
-                                    <a href="{{products.featured.[3].url}}">{{products.featured.[3].name}}</a>
-                                </h4>
-
-                                <div class="card-summary" data-test-info-type="price">
-                                    {{#each products.featured.[3].custom_fields}}
-                                        {{#if name '===' 'featured_description'}}
-                                            <p>{{{ sanitize value }}} </p><br>
-                                        {{/if}}
-                                    {{/each}}
-                                    <a href="{{products.featured.[3].url}}">Learn More »</a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
                 </div>
 
                 <div class="small-4 columns shop_products-right">
                     <div class="row">
                         <div class="small-6 columns">
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        <h4 class="card-title">
+                                            <a href="{{products.featured.[3].url}}">{{products.featured.[3].name}}</a>
+                                        </h4>
+                                        <div class="card-summary" data-test-info-type="price">
+                                            {{#each products.featured.[3].custom_fields}}
+                                                {{#if name '===' 'featured_description'}}
+                                                    <p>{{{ sanitize value }}} </p>
+                                                {{/if}}
+                                            {{/each}}
+                                            <a href="{{products.featured.[3].url}}">Learn More »</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
                             <article class="card right-list">
                                 <div class="card-body">
                                     <div class="card-text">
@@ -151,63 +168,12 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="card right-list">
-                                <div class="card-body">
-                                    <div class="card-text">
-                                        <h4 class="card-title">
-                                            <a href="{{products.featured.[7].url}}">{{products.featured.[7].name}}</a>
-                                        </h4>
-                                        <div class="card-summary" data-test-info-type="price">
-                                            {{#each products.featured.[7].custom_fields}}
-                                                {{#if name '===' 'featured_description'}}
-                                                    <p>{{{ sanitize value }}} </p>
-                                                {{/if}}
-                                            {{/each}}
-                                            <a href="{{products.featured.[7].url}}">Learn More »</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
                         </div>
                         <div class="small-6 columns">
                             <article class="card right-list">
                                 <div class="card-body">
                                     <div class="card-text">
                                         <h4 class="card-title">
-                                            <a href="{{products.featured.[3].url}}">{{products.featured.[3].name}}</a>
-                                        </h4>
-                                        <div class="card-summary" data-test-info-type="price">
-                                            {{#each products.featured.[3].custom_fields}}
-                                                {{#if name '===' 'featured_description'}}
-                                                    <p>{{{ sanitize value }}} </p>
-                                                {{/if}}
-                                            {{/each}}
-                                            <a href="{{products.featured.[3].url}}">Learn More »</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="card right-list">
-                                <div class="card-body">
-                                    <div class="card-text">
-                                        <h4 class="card-title">
-                                            <a href="{{products.featured.[6].url}}">{{products.featured.[6].name}}</a>
-                                        </h4>
-                                        <div class="card-summary" data-test-info-type="price">
-                                            {{#each products.featured.[6].custom_fields}}
-                                                {{#if name '===' 'featured_description'}}
-                                                    <p>{{{ sanitize value }}} </p>
-                                                {{/if}}
-                                            {{/each}}
-                                            <a href="{{products.featured.[6].url}}">Learn More »</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="card right-list">
-                                <div class="card-body">
-                                    <div class="card-text">
-                                        <h4 class="card-title">
                                             <a href="{{products.featured.[7].url}}">{{products.featured.[7].name}}</a>
                                         </h4>
                                         <div class="card-summary" data-test-info-type="price">
@@ -225,15 +191,49 @@
                                 <div class="card-body">
                                     <div class="card-text">
                                         <h4 class="card-title">
-                                            <a href="{{products.featured.[3].url}}">{{products.featured.[3].name}}</a>
+                                            <a href="{{products.featured.[8].url}}">{{products.featured.[8].name}}</a>
                                         </h4>
                                         <div class="card-summary" data-test-info-type="price">
-                                            {{#each products.featured.[3].custom_fields}}
+                                            {{#each products.featured.[8].custom_fields}}
                                                 {{#if name '===' 'featured_description'}}
                                                     <p>{{{ sanitize value }}} </p>
                                                 {{/if}}
                                             {{/each}}
-                                            <a href="{{products.featured.[3].url}}">Learn More »</a>
+                                            <a href="{{products.featured.[8].url}}">Learn More »</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        <h4 class="card-title">
+                                            <a href="{{products.featured.[9].url}}">{{products.featured.[9].name}}</a>
+                                        </h4>
+                                        <div class="card-summary" data-test-info-type="price">
+                                            {{#each products.featured.[9].custom_fields}}
+                                                {{#if name '===' 'featured_description'}}
+                                                    <p>{{{ sanitize value }}} </p>
+                                                {{/if}}
+                                            {{/each}}
+                                            <a href="{{products.featured.[9].url}}">Learn More »</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="card right-list">
+                                <div class="card-body">
+                                    <div class="card-text">
+                                        <h4 class="card-title">
+                                            <a href="{{products.featured.[10].url}}">{{products.featured.[10].name}}</a>
+                                        </h4>
+                                        <div class="card-summary" data-test-info-type="price">
+                                            {{#each products.featured.[10].custom_fields}}
+                                                {{#if name '===' 'featured_description'}}
+                                                    <p>{{{ sanitize value }}} </p>
+                                                {{/if}}
+                                            {{/each}}
+                                            <a href="{{products.featured.[10].url}}">Learn More »</a>
                                         </div>
                                     </div>
                                 </div>
@@ -246,7 +246,7 @@
 
         <div class="banners banners-shopall">
             <div class="banner">
-                <a href="#" class="shopall-button">Shop All »</a>
+                <a href="/shop-all" class="shopall-button">Shop All »</a>
             </div>
         </div>
     </div>
