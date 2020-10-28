@@ -16,6 +16,9 @@ $button-hover-practitioner-banner_darkblue: rgb(41,66,110);
 $mainmenu-hover_lightpurple: rgba(180,153,175, 0.22);
 $mainmenu-hover_darkpurple: rgb(97,76,92);
 
+$shop-products_darkorange: rgba(179,75,41,1);
+$shop-products_darkorange_hover: rgba(179,75,41,0.2);
+
 $text_darkblue: rgb(3,73,133);
 
 $lightgrey: rgb(205,214,218);
@@ -302,7 +305,7 @@ body {
           color: $mainmenu-hover_darkpurple;
         }
 
-        p {
+        .nav-link {
           line-height: 45px;
           margin-bottom: 0;
         }
@@ -326,6 +329,13 @@ body {
           right: 50%;
           margin-left: -50vw;
           margin-right: -50vw;
+
+          .megamenu-dropdown_content {
+            border-top: 4px solid;
+            border-image-slice: 1;
+            border-image-source: linear-gradient(90deg, $white, $mainmenu-hover_lightpurple, $white);
+            padding-top: 1rem;
+          }
 
           // Health Functions
           .megamenu-health_functions {
@@ -354,7 +364,7 @@ body {
               .divider {
                 width: 0;
                 border-top: 0;
-                border-right: 1px solid $lightgrey;
+                border-right: 2px solid $lightgrey;
                 margin: 10px 0;
                 height: 10rem;
               }
@@ -368,8 +378,37 @@ body {
 
           // Shop Products
           .megamenu-shop_products {
-            article {
+            padding-bottom: 1rem;
+
+            .left-card, .center-column {
               margin-bottom: 0;
+            }
+
+            .card-img-container, .card-body {
+              display: flex;
+              align-items: center;
+            }
+
+            .card-body {
+              padding: 0;
+            }
+
+            .card-text {
+              p {
+                margin-bottom: 0;
+                line-height: 1.2;
+                color: $black;
+              }
+
+              .card-summary a {
+                color: $shop-products_darkorange;
+                text-decoration: none;
+                //font-weight: normal;
+
+                &:hover {
+                  color: $shop-products_darkorange_hover;
+                }
+              }
             }
 
             .shop_products-left {
@@ -377,31 +416,73 @@ body {
                 font-weight: bold;
                 color: $text_darkblue;
               }
+
+              .card-text {
+                h4 {
+                  font-size: 26px;
+                }
+              }
             }
 
             .shop_products-center {
               .center-column {
-                max-height: 100px;
+                .card-img-container:after {
+                  padding-bottom: 0;
+                }
+
+                .card-body {
+                  h4 {
+                    font-size: 20px;
+                  }
+                }
               }
             }
 
             .shop_products-right {
               .card-body {
+                .card-title {
+                  margin-bottom: 0;
+                  line-height: 1;
+                }
+
                 .card-text {
                   white-space: nowrap;
                   overflow: hidden;
                   max-width: 150px;
+
+                  p {
+                    font-size: 12px;
+                  }
                 }
               }
 
-              article {
-                margin-bottom: 0;
+              .right-list {
+                margin-bottom: 1rem;
               }
             }
           }
 
           .banners-shopall {
             background-color: $banner_purple;
+            padding: 0;
+
+            .banner {
+              text-align: right;
+              padding: 0 10%;
+
+              .shopall-button {
+                text-decoration: none;
+                border: 2px solid $white;
+                padding: 5px 40px;
+                border-radius: 17px;
+                font-weight: bold;
+
+                &:hover {
+                  background-color: $white;
+                  color: $banner_purple;
+                }
+              }
+            }
           }
 
           .megamenu-dropdown_content {
@@ -413,7 +494,7 @@ body {
               //width: 320px;
 
               .card-img-container {
-                width: 120px;
+                width: 100px;
               }
 
               .card-body {
