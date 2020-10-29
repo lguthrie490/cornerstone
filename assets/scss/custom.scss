@@ -41,6 +41,8 @@ $homecards-button_text: #ffffff;
 $homecards-button-hover_darkblue: rgb(71,105,153);
 $homecards-button-hover_text: rgb(177,211,236);
 
+$practitioner-banner_darkblue: rgb(71,105,147);
+
 // Colours -move to _colours.scss
 $dark-text: #171c21;
 $dark-blue-1: #273a8a;
@@ -183,7 +185,7 @@ body {
 }
 
 .banner-practitioner {
-  background-color: $darkblue1;
+  background-color: $practitioner-banner_darkblue;
 
   .practitioner {
     p {
@@ -195,16 +197,16 @@ body {
 
   .banner {
     .button {
-      background-color: $darkblue1;
-      border: 2px solid $lightblue3;
-      color: $lightblue3;
+      background-color: $carousel-button_lightblue;
+      color: $carousel-button-text_darkblue;
+      border: none;
       text-transform: uppercase;
       font-weight: bold;
       font-size: 18px;
 
       &:hover {
-        background-color: $lightblue3;
-        color: $white;
+        background-color: $carousel-button-hover_lightblue;
+        color: $carousel-button-hover-text_darkblue;
       }
     }
   }
@@ -703,21 +705,73 @@ body .modal-background {
       border-right: 2px solid $lightblue2;
     }
 
-    .footer-info-links {
-      width: 25%;
-      padding-left: 3rem;
+    .footer-links-container {
+      display: inline-block;
+      .footer-info-links {
+        width: 50%;
+        padding-left: 3rem;
+      }
     }
   }
 
-  .footer-fda {
+  .footer-social {
     display: flex;
-    justify-content: center;
+    align-content: space-between;
+
+    .social-box {
+      width: 58.3%;
+      padding-left: 9%;
+
+      div {
+        height: 44px;
+        width: 44px;
+        float: left;
+        margin-right: 1rem;
+      }
+
+      .linkedin {
+        background: url("/assets/icons/social/1x/linkedin.png") no-repeat;
+
+        &:hover {
+          background: url("/assets/icons/social/1x/linkedin-hover.png") no-repeat;
+        }
+      }
+
+      .facebook {
+        background: url("/assets/icons/social/1x/facebook.png") no-repeat;
+
+        &:hover {
+          background: url("/assets/icons/social/1x/facebook-hover.png") no-repeat;
+        }
+      }
+
+      .instagram {
+        background: url("/assets/icons/social/1x/instagram.png") no-repeat;
+
+        &:hover {
+          background: url("/assets/icons/social/1x/instagram-hover.png") no-repeat;
+        }
+      }
+
+      .youtube {
+        background: url("/assets/icons/social/1x/youtube.png") no-repeat;
+
+        &:hover {
+          background: url("/assets/icons/social/1x/youtube-hover.png") no-repeat;
+        }
+      }
+
+    }
 
     .fda-border-box {
-      max-width: 600px;
+      display: block;
+      max-width: 33.3333%;
       border: 2px solid $white;
       margin-bottom: 2rem;
       padding: 1px 8px;
+      color: $white;
+      font-weight: bold;
+
     }
 
     p {
@@ -893,8 +947,11 @@ body .modal-background {
       }
 
       .description {
+        margin-bottom: 1rem;
+
         p {
           margin-bottom: 0;
+          line-height: 1.6;
         }
       }
 
@@ -985,6 +1042,10 @@ body .modal-background {
 
         a {
           text-decoration: none;
+
+          &:hover {
+            color: $banner_purple;
+          }
         }
       }
     }

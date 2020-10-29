@@ -59,27 +59,20 @@
                     {{/each}}
                 </ul>
             </article>
-
-            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
-                <h5 class="footer-info-heading">{{lang 'footer.brands'}}</h5>
-                <ul class="footer-info-list">
-                    {{#each shop_by_brand}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
-                </ul>
-            </article>
-            {{/and}}
-
         </section>
-        <section class="footer-fda">
+
+        <section class="footer-social">
+            <div class="social-box">
+                <div class="linkedin"></div>
+                <div class="facebook"></div>
+                <div class="instagram"></div>
+                <div class="youtube"></div>
+            </div>
             <div class="fda-border-box">
                 <p>*These statements have not been evaluated by the Food and Drug Administration.<br> These products are not intended to diagnose, treat, cure, or prevent any disease.</p>
             </div>
         </section>
+
         {{#if theme_settings.show_copyright_footer}}
             <div class="banners banner-footer">
                 <div class="banner subscription-form">
