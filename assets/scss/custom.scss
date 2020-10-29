@@ -827,13 +827,13 @@ body .modal-background {
 
       li {
         background-color: $lightblue3;
-        height: 85px;
       }
     }
 
     .title {
       color: $darkblue4;
       font-size: 24px;
+      height: 70px;
     }
 
     .description {
@@ -841,11 +841,16 @@ body .modal-background {
       text-align: left;
       border-bottom: none;
       min-height: 12rem;
+      height: 85px;
 
       p {
-        font-size: 16px;
-        line-height: 1.4rem;
+        font-size: 15px;
+        line-height: 1.6rem;
       }
+    }
+
+    .cta-button {
+      padding: 1rem;
     }
 
     .button {
@@ -855,6 +860,7 @@ body .modal-background {
       border-radius: 0;
       width: 100%;
       font-size: 20px;
+      margin: 0;
 
       &:hover {
         background-color: $homecards-button-hover_darkblue;
