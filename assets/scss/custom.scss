@@ -1194,7 +1194,8 @@ body .modal-background {
     }
 
       .productView-price {
-      margin-bottom: 0;
+        font-size: 22px;
+        margin-bottom: 0;
     }
 
     .productView-stock {
@@ -1206,8 +1207,13 @@ body .modal-background {
     }
 
     .productView-title {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: bold;
+    }
+
+    .productView-subtitle {
+      font-size: 13px;
+      font-style: italic;
     }
   }
 
