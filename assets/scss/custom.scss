@@ -49,6 +49,10 @@ $search-box-icon_grey: rgb(62,65,68);
 
 $home-fullwidth-text_darkblue: rgb(41,66,110);
 
+$products-buttons_grey: rgb(215,222,225);
+$products-buttons-hover_grey: rgb(227, 236, 238);
+$products-buttons_darkgrey: rgb(94,91,93);
+
 // Colours -move to _colours.scss
 $dark-text: #171c21;
 $dark-blue-1: #273a8a;
@@ -1295,7 +1299,7 @@ body .modal-background {
     .form-action {
       width: 14rem;
 
-      input {
+      .button {
         border: 3px solid black;
         background-color: $white;
         color: $black;
@@ -1305,6 +1309,17 @@ body .modal-background {
         &:hover {
           color: $white;
           background-color: $black;
+        }
+
+        &.button-out-of-stock {
+          background-color: $products-buttons_grey;
+          color: $products-buttons_darkgrey;
+          border: none;
+          cursor: default;
+
+          &:hover {
+            background-color: $products-buttons-hover_grey;
+          }
         }
       }
     }

@@ -236,6 +236,8 @@
                 </div>
                 {{#if product.can_purchase}}
                     {{> components/products/add-to-cart}}
+                {{else}}
+                    {{> components/products/out-of-stock }}
                 {{/if}}
                 {{#if product.out_of_stock}}
                     {{#if product.out_of_stock_message}}
