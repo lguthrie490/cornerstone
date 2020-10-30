@@ -36,12 +36,18 @@ $carousel-button-text_darkblue: rgb(35,31,32);
 $carousel-button-hover_lightblue: rgb(150,182,220);
 $carousel-button-hover-text_darkblue: rgb(41,66,110);
 
+
 $homecards-button_darkblue: rgb(41,66,110);
 $homecards-button_text: #ffffff;
 $homecards-button-hover_darkblue: rgb(71,105,153);
 $homecards-button-hover_text: rgb(177,211,236);
 
 $practitioner-banner_darkblue: rgb(71,105,147);
+
+$search-box_grey: rgb(228,234,238);
+$search-box-icon_grey: rgb(62,65,68);
+
+$home-fullwidth-text_darkblue: rgb(41,66,110);
 
 // Colours -move to _colours.scss
 $dark-text: #171c21;
@@ -101,6 +107,10 @@ body {
   .banner {
     a {
       text-decoration: none;
+
+      &:hover {
+        color: rgb(219, 219, 219);
+      }
     }
   }
 }
@@ -140,6 +150,16 @@ body {
         max-width: 200px;
         margin-left: 1rem;
         border: none;
+        background-color: rgba(255,255,255,0.3);
+        color: $white;
+
+        &:focus {
+          background-color: rgba(255,255,255,0.5);
+        }
+
+        &::placeholder {
+          color: $white;
+        }
       }
 
       .form-input:focus + .button {
@@ -264,6 +284,10 @@ body {
 
       .form-fieldset {
         .form-field {
+          .form-input {
+            background-color: $search-box_grey;
+          }
+
           input {
             border: none;
 
@@ -271,8 +295,24 @@ body {
               margin: -1px;
               border: 1px solid $black;
             }
+
+            &:focus + .bi-search {
+              display: none;
+              transition: opacity 1s;
+            }
+          }
+
+          .bi-search {
+            color: $search-box-icon_grey;
+            position: absolute;
+            top: 32px;
+            margin-left: 200px;
           }
         }
+      }
+
+      .search-button {
+        display: none;
       }
 
       .form, .form-field {
@@ -706,7 +746,7 @@ body .modal-background {
 
     .footer-info-links {
       width: 25%;
-      padding-left: 2rem;
+      padding-left: 4rem;
     }
 
     .footer-half {
@@ -782,7 +822,7 @@ body .modal-background {
 
     .fda-border-box {
       display: block;
-      max-width: 33.3333%;
+      max-width: 45%;
       border: 2px solid $white;
       margin-bottom: 2rem;
       padding: 1px 8px;
@@ -823,6 +863,10 @@ body .modal-background {
 .heroCarousel {
   margin-bottom: 0;
 
+  @media (min-width: 801px) {
+    margin-bottom: 2rem;
+  }
+
   .slick-arrow, .slick-dots li {
     background-color: rgba(0,0,0,0);
     border: none;
@@ -860,7 +904,7 @@ body .modal-background {
       }
 
       .heroCarousel-action {
-        padding: 20px 35px;
+        padding: 1.2rem 2.8rem;
         border: none;
         border-radius: 0;
         background-color: $carousel-button_lightblue;
@@ -913,10 +957,11 @@ body .modal-background {
       border-bottom: none;
       min-height: 12rem;
       height: 85px;
+      margin-bottom: 0.5rem;
 
       p {
         font-size: 15px;
-        line-height: 1.6rem;
+        line-height: 1.4rem;
       }
     }
 
@@ -930,7 +975,7 @@ body .modal-background {
       border: none;
       border-radius: 0;
       width: 100%;
-      font-size: 20px;
+      font-size: 21px;
       margin: 0;
 
       &:hover {
@@ -1029,20 +1074,23 @@ body .modal-background {
             border-radius: 0;
             text-transform: uppercase;
             font-weight: bold;
-            background-color: rgba(177,211,236,0.8);
+            background-color: $carousel-button_lightblue;
+            color: $carousel-button-text_darkblue;
 
             &:hover {
-              background-color: rgba(216,233,246,0.8);
+              background-color: $carousel-button-hover_lightblue;
+              color: $carousel-button-hover-text_darkblue;
             }
           }
 
           .out-of-stock {
-            background-color: rgba(216,216,216,0.8);
-            color: $white;
+            background-color: rgba(216,216,216,1);
+            color: $carousel-button-text_darkblue;
             font-weight: bold;
 
             &:hover {
-              background-color: rgba(216,216,216,1);
+              color: $carousel-button-text_darkblue;
+              background-color: rgba(216,216,216,0.9);
             }
           }
         }
@@ -1084,7 +1132,6 @@ body .modal-background {
 
     h2 {
       text-align: center;
-      font-weight: bold;
       color: $black;
     }
 
@@ -1098,7 +1145,7 @@ body .modal-background {
       padding: 0 4rem;
 
       p {
-        color: $darkblue1;
+        color: $home-fullwidth-text_darkblue;
         font-size: 20px;
         text-align: center;
       }
