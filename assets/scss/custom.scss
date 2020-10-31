@@ -25,6 +25,8 @@ $lightgrey: rgb(205,214,218);
 $menu_darkblue: rgb(41,66,110);
 $menu_darkblue-hover: rgb(71,105,153);
 
+
+
 $signin_darkblue: rgb(21,29,75);
 $signin-text_darkblue: rgb(41,66,110);
 $signin-text_darkblue_hover: rgb(54, 73, 109);
@@ -397,6 +399,9 @@ body {
 
           // Health Functions
           .megamenu-health_functions {
+            max-width: 1200px;
+            margin: 0 auto;
+
             .container-health_functions {
               display: flex;
               justify-content: center;
@@ -433,9 +438,12 @@ body {
                 width: 0;
                 border-top: 0;
                 border-right: 2px solid $lightgrey;
-                //margin: 10px 0;
                 height: initial;
                 margin-bottom: 10px;
+
+                &:last-child {
+                  display: none;
+                }
               }
             }
 
