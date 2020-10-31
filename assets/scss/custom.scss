@@ -949,6 +949,10 @@ body .modal-background {
   }
 
   .home-cards_cards {
+    .columns {
+      max-width: 450px;
+    }
+
     .pricing-table {
       border: none;
 
