@@ -49,6 +49,10 @@ $search-box-icon_grey: rgb(62,65,68);
 
 $home-fullwidth-text_darkblue: rgb(41,66,110);
 
+$products-buttons_grey: rgb(215,222,225);
+$products-buttons-hover_grey: rgb(227, 236, 238);
+$products-buttons_darkgrey: rgb(94,91,93);
+
 // Colours -move to _colours.scss
 $dark-text: #171c21;
 $dark-blue-1: #273a8a;
@@ -957,7 +961,6 @@ body .modal-background {
       border-bottom: none;
       min-height: 12rem;
       height: 85px;
-      margin-bottom: 0.5rem;
 
       p {
         font-size: 15px;
@@ -1194,7 +1197,8 @@ body .modal-background {
     }
 
       .productView-price {
-      margin-bottom: 0;
+        font-size: 22px;
+        margin-bottom: 0;
     }
 
     .productView-stock {
@@ -1206,8 +1210,13 @@ body .modal-background {
     }
 
     .productView-title {
-      font-size: 28px;
+      font-size: 30px;
       font-weight: bold;
+    }
+
+    .productView-subtitle {
+      font-size: 13px;
+      font-style: italic;
     }
   }
 
@@ -1221,6 +1230,7 @@ body .modal-background {
       max-height: 420px;
       position: relative;
       overflow: hidden;
+      margin-bottom: 2rem;
 
       .read-more {
         position: absolute;
@@ -1229,7 +1239,7 @@ body .modal-background {
         width: 100%;
         text-align: center;
         margin: 0;
-        padding: 30px 0;
+        padding-top: 30px;
         background-image: linear-gradient(to bottom, transparent, $white);
 
         .button {
@@ -1269,6 +1279,10 @@ body .modal-background {
 
         svg {
           fill: $black;
+
+          &:hover {
+            fill: $products-buttons_grey;
+          }
         }
       }
     }
@@ -1289,16 +1303,38 @@ body .modal-background {
     .form-action {
       width: 14rem;
 
-      input {
-        border: 3px solid black;
-        background-color: $white;
-        color: $black;
+      .button {
+        background-color: $carousel-button_lightblue;
+        color: $carousel-button-text_darkblue;
         font-weight: bold;
         font-size: 22px;
+        border: none;
+        text-transform: uppercase;
+        width: 16rem;
+        height: 3.3rem;
 
         &:hover {
-          color: $white;
-          background-color: $black;
+          color: $carousel-button-hover-text_darkblue;
+          background-color: $carousel-button-hover_lightblue;
+        }
+
+        &.button-out-of-stock {
+          background-color: $products-buttons_grey;
+          color: $products-buttons_darkgrey;
+          border: none;
+          cursor: default;
+
+          &:hover {
+            background-color: $products-buttons-hover_grey;
+          }
+        }
+      }
+    }
+
+    .form {
+      .form-field {
+        .form-label {
+          margin-left: 0;
         }
       }
     }
@@ -1334,12 +1370,13 @@ body .modal-background {
 
 .product-testimonials {
   background-color: $lightblue1;
-  width: 100vw;
+  width: 99.3vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  padding-bottom: 3rem;
 
   .dark-blue {
     color: $dark-blue-1;

@@ -11,11 +11,13 @@
     <section class="productView-details product-info">
         <div class="productView-product">
             <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
-            {{#if product.brand}}
-                <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
-                    <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
-                </h2>
-            {{/if}}
+            <p class="productView-subtitle">
+                {{#each product.custom_fields }}
+                    {{#if name '===' 'product_subtitle'}}
+                        {{{sanitize value}}}
+                    {{/if}}
+                {{/each}}
+            </p>
             {{#if product.call_for_price}}
                 <p class="productView-price">
                     <span>{{product.call_for_price}}</span>
@@ -53,10 +55,10 @@
                 </div>
 
                 <div class="productView-stock">
-                    {{#if product.out_of_stock}}
-                        <p class="red">out of stock</p>
-                    {{else}}
+                    {{#if product.can_purchase '===' true}}
                         <p>in stock</p>
+                    {{else}}
+                        <p class="red">out of stock</p>
                     {{/if}}
                 </div>
             </div>
@@ -142,12 +144,6 @@
                     <div class="productView-info-bulkPricing">
                         {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
                     </div>
-                {{/if}}
-
-                {{#if theme_settings.show_custom_fields_tabs '!==' true}}
-                    {{#each product.custom_fields}}
-                        <dd class="productView-info-value">{{{ sanitize value}}}</dd>
-                    {{/each}}
                 {{/if}}
             </dl>
         </div>
@@ -240,6 +236,8 @@
                 </div>
                 {{#if product.can_purchase}}
                     {{> components/products/add-to-cart}}
+                {{else}}
+                    {{> components/products/out-of-stock }}
                 {{/if}}
                 {{#if product.out_of_stock}}
                     {{#if product.out_of_stock_message}}
