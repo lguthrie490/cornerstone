@@ -440,6 +440,7 @@ body {
                 border-right: 2px solid $lightgrey;
                 height: initial;
                 margin-bottom: 10px;
+                cursor: default;
 
                 &:last-child {
                   display: none;
@@ -1266,6 +1267,14 @@ body .modal-background {
           &:hover {
             background-color: $grey3;
           }
+        }
+
+        .read-more-line {
+          border-bottom: 2px solid $grey2;
+          width: 100%;
+          display: block;
+          position: absolute;
+          top: 40px;
         }
       }
     }
