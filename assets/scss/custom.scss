@@ -98,6 +98,29 @@ body {
 
 .body {
   margin-bottom: 0;
+
+  @media (max-width: $screen-small) {
+    overflow-x: hidden;
+  }
+
+  .heroCarousel {
+    @media (max-width: $screen-small) {
+      margin-top: 116px;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+//
+// Mobile-specific objects
+//
+// -----------------------------------------------------------------------------
+.header {
+  .mobileMenu-toggle {
+    @media (max-width: $screen-small) {
+      top: 0;
+    }
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -933,13 +956,32 @@ body .modal-background {
   }
 
   .heroCarousel-slide {
+    .heroCarousel-image-wrapper {
+      .heroCarousel-image {
+        @media (max-width: $screen-small) {
+          width: 380px;
+          height: 300px;
+          object-fit: cover;
+        }
+      }
+    }
+
     .heroCarousel-content {
       background-color: rgba(0,0,0,0);
       text-align: left;
 
+      @media (max-width: $screen-small) {
+        margin-top: -160px;
+        padding-top: 50px;
+      }
+
       .heroCarousel-title, .heroCarousel-description {
         color: black;
         font-weight: bold;
+
+        @media (max-width: $screen-small) {
+          font-size: 34px;
+        }
       }
 
       .heroCarousel-description {
@@ -973,6 +1015,12 @@ body .modal-background {
     text-align: center;
     font-size: 28px;
     line-height: 1.3;
+
+    .small-centered {
+      @media (max-width: $screen-small) {
+        width: 100%;
+      }
+    }
 
     h2 {
       margin-top: 0;
@@ -1163,6 +1211,14 @@ body .modal-background {
   }
 }
 
+// Image Block / Promo Image
+.image-block {
+  // @todo need to not load in template
+  @media (max-width: $screen-small) {
+    display: none;
+  }
+}
+
 // Fullwidth
 .home-fullwidth {
   margin-bottom: 2rem;
@@ -1220,6 +1276,12 @@ body .modal-background {
 // Product Page
 //
 // -----------------------------------------------------------------------------
+
+.productView {
+  @media (max-width: $screen-small) {
+    margin-top: 140px;
+  }
+}
 
 .productView-details {
   &.product-info {
