@@ -2,6 +2,7 @@ import 'foundation-sites/js/foundation/foundation';
 import 'foundation-sites/js/foundation/foundation.dropdown';
 import 'foundation-sites/js/foundation/foundation.reveal';
 import 'foundation-sites/js/foundation/foundation.tab';
+import 'foundation-sites/js/foundation/foundation.accordion';
 import modalFactory from './modal';
 import revealCloseFactory from './reveal-close';
 
@@ -18,6 +19,12 @@ export default function ($element) {
         },
         tab: {
             active_class: 'is-active',
+        },
+        accordion: {
+            content_class: 'accordion-content',
+            active_class: 'active',
+            toggleable: true,
+            multi_expand: true,
         },
     });
 

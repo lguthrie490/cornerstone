@@ -1,9 +1,68 @@
 <nav class="navPages">
-    <div class="navPages-quickSearch">
-        {{> components/common/quick-search}}
+    <div class="navPages-accordion">
+        <dl class="accordion">
+
+            <dt><a href="">Health Functions</a></dt>
+            <dd>
+                <div class="container-health_functions">
+                    {{#each categories}}
+                        {{#each children}}
+                            <div class="column-health_functions">
+                                <p class="title">{{name}}</p>
+                                {{#each children}}
+                                    <a href="{{url}}">{{name}}</a>
+                                {{/each}}
+                            </div>
+                        {{/each}}
+                    {{/each}}
+                </div>
+            </dd>
+
+            <dt><a href="">Shop Products</a></dt>
+            <dd class="shop-products">
+                <p class="title-featured">Featured</p>
+                {{#each products.featured}}
+                    <article class="card right-list">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h4 class="card-title">
+                                    <a href="{{url}}">{{name}}</a>
+                                </h4>
+                                <div class="card-summary" data-test-info-type="price">
+                                    {{#each custom_fields}}
+                                        {{#if name '===' 'featured_description'}}
+                                            <p>{{{ sanitize value }}} </p>
+                                        {{/if}}
+                                    {{/each}}
+                                    <a href="{{url}}">Learn More »</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                {{/each}}
+
+                <div class="banners banners-shopall banner-shopall-mobile">
+                    <div class="banner">
+                        <a href="/shop-products/" class="shopall-button">Shop All »</a>
+                    </div>
+                </div>
+            </dd>
+
+            <dt><a href="">The Power of Tesseract</a></dt>
+            <dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.</dd>
+
+            <dt><a href="">Search</a></dt>
+            <dd>
+                <div class="navPages-quickSearch">
+                    {{> components/common/quick-search}}
+                </div>
+            </dd>
+
+        </dl>
     </div>
 
     <ul class="navPages-list navPages-list--user">
+
         {{#if currency_selector.currencies.length '>' 1}}
             <li class="navPages-item">
                 <a class="navPages-action has-subMenu" href="#" data-collapsible="navPages-currency" aria-controls="navPages-currency" aria-expanded="false">

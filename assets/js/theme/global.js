@@ -42,7 +42,9 @@ export default class Global extends PageManager {
 
             $('.accordion > dt > a').click(function () {
                 allPanels.slideUp();
+                $('.accordion > dt').removeClass('active');
                 $(this).parent().next().slideDown();
+                $(this).parent().addClass('active');
                 return false;
             });
         }(jQuery));
