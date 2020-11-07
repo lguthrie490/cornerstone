@@ -422,6 +422,150 @@ body {
 
 // -----------------------------------------------------------------------------
 //
+// Cart
+//
+// -----------------------------------------------------------------------------
+.cart {
+  .cart-header {
+    background-color: $banner_purple;
+
+    .cart-header-item {
+      color: $white;
+    }
+  }
+
+  .cart-item {
+    background-color: $white;
+
+    .cart-item-block {
+      .cart-item-image {
+        max-width: 100%;
+      }
+
+      .cart-item-name a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .form-increment {
+    width: 220px;
+  }
+
+  .button--icon {
+    border: none;
+
+    .icon {
+      width: 3rem;
+      height: 3rem;
+
+      svg {
+        fill: $black;
+
+        &:hover {
+          fill: $products-buttons_grey;
+        }
+      }
+    }
+
+    @media (max-width: $screen-small) {
+      float: left;
+    }
+
+  }
+
+  .form-input--incrementTotal {
+    float: left;
+    width: 7rem;
+  }
+
+  .form-input {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: $white;
+    border: none;
+    border-bottom: 3px solid $black;
+  }
+
+  .form-action {
+    margin-right: 130px;
+
+    .button {
+      background-color: $carousel-button_lightblue;
+      color: $carousel-button-text_darkblue;
+      font-weight: bold;
+      font-size: 22px;
+      border: none;
+      text-transform: uppercase;
+      width: auto;
+      height: 3.3rem;
+
+      &:hover {
+        color: $carousel-button-hover-text_darkblue;
+        background-color: $carousel-button-hover_lightblue;
+      }
+
+      &.button-out-of-stock {
+        background-color: $products-buttons_grey;
+        color: $products-buttons_darkgrey;
+        border: none;
+        cursor: default;
+
+        &:hover {
+          background-color: $products-buttons-hover_grey;
+        }
+      }
+    }
+  }
+
+  .form {
+    .form-field {
+      .form-label {
+        margin-left: 0;
+
+        @media (max-width: $screen-small) {
+          text-align: left;
+          margin-left: 72px;
+        }
+      }
+    }
+  }
+}
+
+.cart-actions {
+  margin-bottom: 2rem;
+
+  .button {
+    background-color: $carousel-button_lightblue;
+    color: $carousel-button-text_darkblue;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+
+    &:hover {
+      background-color: $carousel-button-hover_lightblue;
+      color: $carousel-button-hover-text_darkblue;
+    }
+  }
+}
+
+// Preview Modal
+#previewModal {
+  .modal-close {
+    top: 1.05rem;
+  }
+}
+
+.previewCart {
+  .button {
+    border-radius: 0;
+  }
+}
+
+// -----------------------------------------------------------------------------
+//
 // Navigation
 //
 // -----------------------------------------------------------------------------
