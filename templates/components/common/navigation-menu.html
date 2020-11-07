@@ -1,135 +1,77 @@
 <nav class="navPages">
-    <div class="navPages-quickSearch">
-        {{> components/common/quick-search}}
+    <div class="navPages-accordion">
+        <dl class="accordion">
+            <dt class="link-only"><a class="inline" href="{{urls.cart}}">Cart</a> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+            </svg> <span class="countPill cart-quantity"></span></dt>
+
+            <dt><a href="">Health Functions</a></dt>
+            <dd class="health-functions">
+                <div class="container-health_functions">
+                    {{#each categories}}
+                        {{#each children}}
+                            <div class="column-health_functions">
+                                <p class="title">{{name}}</p>
+                                {{#each children}}
+                                    <a href="{{url}}">{{name}}</a>
+                                {{/each}}
+                            </div>
+                        {{/each}}
+                    {{/each}}
+                </div>
+
+                <div class="banners banners-shopall banner-shopall-mobile">
+                    <div class="banner">
+                        <a href="/shop-products/" class="shopall-button">Shop All »</a>
+                    </div>
+                </div>
+            </dd>
+
+            <dt><a href="">Shop Products</a></dt>
+            <dd class="shop-products">
+                <p class="title-featured">Featured</p>
+                {{#each products.featured}}
+                    <article class="card right-list">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h4 class="card-title">
+                                    <a href="{{url}}">{{name}}</a>
+                                </h4>
+                                <div class="card-summary" data-test-info-type="price">
+                                    {{#each custom_fields}}
+                                        {{#if name '===' 'featured_description'}}
+                                            <p>{{{ sanitize value }}} </p>
+                                        {{/if}}
+                                    {{/each}}
+                                    <a href="{{url}}">Learn More »</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                {{/each}}
+
+                <div class="banners banners-shopall banner-shopall-mobile">
+                    <div class="banner">
+                        <a href="/shop-products/" class="shopall-button">Shop All »</a>
+                    </div>
+                </div>
+            </dd>
+
+            <dt class="link-only"><a href="/the-power-of-tesseract">The Power of Tesseract</a></dt>
+
+            <dt class="link-only"><a href="/stories">Stories</a></dt>
+
+            <dt class="link-only"><a href="/resources">Resources</a></dt>
+
+            <dt><a href="">Search</a></dt>
+            <dd>
+                <div class="navPages-quickSearch">
+                    {{> components/common/quick-search}}
+                </div>
+            </dd>
+
+            <dt class="link-only"><a href="{{urls.auth.login}}">Log In or Register</a></dt>
+
+        </dl>
     </div>
-
-    <ul class="navPages-list navPages-list--user">
-        {{#if currency_selector.currencies.length '>' 1}}
-            <li class="navPages-item">
-                <a class="navPages-action has-subMenu" href="#" data-collapsible="navPages-currency" aria-controls="navPages-currency" aria-expanded="false">
-                    {{lang 'common.currency' code=currency_selector.active_currency_code}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use></svg></i>
-                </a>
-                <div class="navPage-subMenu" id="navPages-currency" aria-hidden="true" tabindex="-1">
-                    <ul class="navPage-subMenu-list">
-                        {{#each currency_selector.currencies}}
-                        <li class="navPage-subMenu-item">
-                            <a class="navPage-subMenu-action navPages-action" href="{{{switch_url}}}">
-                                {{#if is_active}}
-                                    <strong>{{name}}</strong>
-                                {{else}}
-                                    {{name}}
-                                {{/if}}
-                            </a>
-                        </li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </li>
-        {{/if}}
-        {{#if settings.gift_certificates_enabled}}
-            <li class="navPages-item">
-                <a class="navPages-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
-            </li>
-        {{/if}}
-        {{#if customer.store_credit.value '>' 0}}
-            <li class="navPages-item">
-                <a class="navPages-action navPages-action--storeCredit">
-                    {{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}
-                </a>
-            </li>
-        {{/if}}
-        {{#if theme_settings.product_list_display_mode '==' 'list'}}
-            <li class="navPages-item">
-                <a class="navPages-action navPages-action--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span></a>
-            </li>
-        {{/if}}
-        {{#if customer}}
-            <li class="navPages-item">
-                <a class="navPages-action has-subMenu" href="{{urls.account.index}}" data-collapsible="navPages-account">
-                    {{lang 'common.account'}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
-                </a>
-                <div class="navPage-subMenu" id="navPages-account" aria-hidden="true" tabindex="-1">
-                    <ul class="navPage-subMenu-list">
-                        <li class="navPage-subMenu-item">
-                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
-                        </li>
-                        {{#if settings.returns_enabled}}
-                            <li class="navPage-subMenu-item">
-                                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.returns}}">{{lang 'account.nav.returns'}}</a>
-                            </li>
-                        {{/if}}
-                        <li class="navPage-subMenu-item">
-                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.inbox}}">{{lang 'account.mobile_nav.messages'}}</a>
-                        </li>
-                        <li class="navPage-subMenu-item">
-                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.addresses}}">{{lang 'account.nav.addresses'}}</a>
-                        </li>
-                        {{#if settings.show_payment_methods}}
-                            <li class="navPage-subMenu-item">
-                                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.payment_methods.all}}">{{lang 'account.nav.payment_methods'}}</a>
-                            </li>
-                        {{/if}}
-                        <li class="navPage-subMenu-item">
-                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
-                        </li>
-                        <li class="navPage-subMenu-item">
-                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
-                        </li>
-                        <li class="navPage-subMenu-item">
-                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.details}}">{{lang 'account.nav.settings'}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="navPages-item">
-                <a class="navPages-action" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
-            </li>
-        {{else}}
-            <li class="navPages-item">
-                <a class="navPages-action" href="{{urls.auth.login}}">{{lang 'common.login'}}</a>
-                {{#if settings.account_creation_enabled}}
-                    {{lang 'common.or'}} <a class="navPages-action" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
-                {{/if}}
-            </li>
-        {{/if}}
-        {{#if theme_settings.social_icon_placement_top}}
-            <li class="navPages-item">
-                {{> components/common/social-links}}
-            </li>
-        {{/if}}
-        {{#each categories}}
-            {{#if children}}
-                <li class="not-click has-dropdown{{#if is_active}} active{{/if}}">
-                    <a href="{{url}}">{{name}}</a>
-                    <ul class="dropdown">
-                        {{#each children}}
-                            <li {{#if is_active}}class="active"{{/if}}>
-                                <a href="{{url}}">{{name}}</a>
-                            </li>
-                        {{/each}}
-                    </ul>
-                </li>
-            {{else}}
-                <li {{#if is_active}}class="active"{{/if}}>
-                    <a href="{{url}}">{{name}}</a>
-                </li>
-            {{/if}}
-        {{/each}}
-
-        {{#each pages}}
-            <li class="{{#if has_children}}has-dropdown{{/if}}{{#if is_active}} active{{/if}}">
-                <a href="{{url}}">{{name}}</a>
-                {{#if has_children}}
-                    <ul class="dropdown">
-                        {{#each children}}
-                            <li {{#if is_active}}class="active"{{/if}}>
-                                <a href="{{url}}">{{name}}</a>
-                            </li>
-                        {{/each}}
-                    </ul>
-                {{/if}}
-            </li>
-
-        {{/each}}
-    </ul>
 </nav>
