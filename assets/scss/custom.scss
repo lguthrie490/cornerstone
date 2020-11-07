@@ -173,6 +173,10 @@ body {
         font-weight: 300;
         font-size: 22px;
 
+        &.inline {
+          display: inline-block;
+        }
+
         &:focus {
           font-weight: bold;
         }
