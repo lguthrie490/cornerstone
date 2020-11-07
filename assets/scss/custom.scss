@@ -191,6 +191,7 @@ body {
     .container-health_functions {
       color: $menu_darkblue;
       text-align: right;
+      margin-bottom: 1rem;
 
       .title {
         font-weight: bold;
@@ -206,7 +207,7 @@ body {
       }
     }
 
-    .shop-products {
+    .shop-products, .health-functions {
       background-color: $mobilenav-background_purple;
 
       .banners-shopall {

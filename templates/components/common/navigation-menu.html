@@ -1,9 +1,8 @@
 <nav class="navPages">
     <div class="navPages-accordion">
         <dl class="accordion">
-
             <dt><a href="">Health Functions</a></dt>
-            <dd>
+            <dd class="health-functions">
                 <div class="container-health_functions">
                     {{#each categories}}
                         {{#each children}}
@@ -15,6 +14,12 @@
                             </div>
                         {{/each}}
                     {{/each}}
+                </div>
+
+                <div class="banners banners-shopall banner-shopall-mobile">
+                    <div class="banner">
+                        <a href="/shop-products/" class="shopall-button">Shop All »</a>
+                    </div>
                 </div>
             </dd>
 

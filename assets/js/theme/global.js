@@ -39,12 +39,15 @@ export default class Global extends PageManager {
         // Accordion - Mobile Navigation
         (function ($) {
             const allPanels = $('.accordion > dd').hide();
-
+            // eslint-disable-next-line func-names
             $('.accordion > dt > a').click(function () {
-                allPanels.slideUp();
-                $('.accordion > dt').removeClass('active');
-                $(this).parent().next().slideDown();
-                $(this).parent().addClass('active');
+                if ($(this).parent().hasClass('active')) {
+                    $(this).parent().next().slideUp();
+                    $(this).parent().removeClass('active');
+                } else {
+                    $(this).parent().next().slideDown();
+                    $(this).parent().addClass('active');
+                }
                 return false;
             });
         }(jQuery));
