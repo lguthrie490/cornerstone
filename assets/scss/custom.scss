@@ -551,6 +551,29 @@ body {
   }
 }
 
+@media (max-width: $screen-small) {
+  .cart-page {
+    margin-top: 150px;
+
+    .cart-item-quantity {
+      text-align: center;
+    }
+
+    .cart-item-name a {
+      font-size: 24px;
+    }
+
+    .cart-item-label {
+      text-align: left;
+      font-size: 22px;
+
+      .form-increment {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
 // Preview Modal
 #previewModal {
   .modal-close {
