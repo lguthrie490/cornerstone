@@ -118,8 +118,23 @@ body {
   }
 
   .heroCarousel {
-    @media (max-width: $screen-small) {
+    @media (max-width: 800px) {
       margin-top: 116px;
+    }
+
+    .heroCarousel-slide {
+      .heroCarousel-content {
+        @media (min-width: $screen-small) {
+          left: 0;
+          margin: 0 auto;
+          padding: 2.25rem;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 50rem;
+        }
+      }
     }
   }
 }
@@ -1148,6 +1163,10 @@ body .modal-background {
       width: 25%;
       padding-left: 4rem;
       border-right: 2px solid $lightblue2;
+
+      &:last-child {
+        border: none;
+      }
 
       @media (max-width: $screen-small) {
         padding-left: 2rem;
