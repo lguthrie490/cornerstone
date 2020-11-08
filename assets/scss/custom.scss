@@ -130,7 +130,11 @@ body {
 //
 // -----------------------------------------------------------------------------
 
-@media (max-width: $screen-small) {
+@media (max-width: $screen-medium) {
+  .navigation-main {
+    display: none;
+  }
+
   .header {
     .mobileMenu-toggle {
       top: 40px;
@@ -294,7 +298,7 @@ body {
   margin-left: -50vw;
   margin-right: -50vw;
 
-  @media (max-width: $screen-small) {
+  @media (max-width: $screen-medium) {
     width: 100vw;
   }
 }
@@ -315,7 +319,7 @@ body {
         font-size: 18px;
         margin-bottom: 0;
 
-        @media (max-width: $screen-small) {
+        @media (max-width: $screen-medium) {
           margin-bottom: 10px;
         }
       }
@@ -344,7 +348,7 @@ body {
         transition: visibility 0.5s ease;
         visibility: visible;
 
-        @media (max-width: $screen-small) {
+        @media (max-width: $screen-medium) {
           display: block;
         }
       }
@@ -362,7 +366,7 @@ body {
           border: 1px solid $grey3;
         }
 
-        @media (max-width: $screen-small) {
+        @media (max-width: $screen-medium) {
           display: none;
         }
       }
@@ -880,7 +884,7 @@ body {
       background-color: $white;
 
       .navigation-nav_link {
-        padding: 0 30px;
+        //padding: 0 30px;
 
         &:hover  {
           background-color: $mainmenu-hover_lightpurple;
@@ -1159,7 +1163,7 @@ body .modal-background {
     }
 
     .footer-info-links, .footer-half {
-      @media (max-width: $screen-medium) {
+      @media (max-width: $screen-small) {
         width: 100%;
         max-width: 100vw;
         border: none;
@@ -1383,9 +1387,21 @@ body .modal-background {
     }
   }
 
+  @media (max-width: $screen-medium) {
+    .home-cards_cards {
+      max-width: 26rem;
+
+      .medium-4 {
+        width: 100%;
+      }
+    }
+  }
+
   .home-cards_cards {
+
     .columns {
-      max-width: 450px;
+      //max-width: 33.333%;
+      //width: auto;
     }
 
     .pricing-table {
@@ -1397,17 +1413,20 @@ body .modal-background {
     }
 
     .title {
-      color: $darkblue4;
-      font-size: 24px;
-      height: 70px;
+      p {
+        color: $darkblue4;
+        font-size: 24px;
+        height: 70px;
+        margin-bottom: 0;
+      }
     }
 
     .description {
       color: $dark-text;
       text-align: left;
       border-bottom: none;
-      min-height: 12rem;
-      height: 85px;
+      //min-height: 12rem;
+      height: 160px;
 
       p {
         font-size: 15px;
@@ -1417,6 +1436,11 @@ body .modal-background {
 
     .cta-button {
       padding: 1rem;
+
+      @media (min-width: $screen-medium) and (max-width: 900px) {
+        padding-top: 3rem;
+        min-height: 7rem;
+      }
     }
 
     .button {
@@ -1427,6 +1451,7 @@ body .modal-background {
       width: 100%;
       font-size: 21px;
       margin: 0;
+      padding: 1rem 0;
 
       &:hover {
         background-color: $homecards-button-hover_darkblue;
@@ -1644,7 +1669,7 @@ body .modal-background {
 // -----------------------------------------------------------------------------
 
 .productView {
-  @media (max-width: $screen-small) {
+  @media (max-width: 800px) {
     margin-top: 140px;
   }
 }
@@ -1868,7 +1893,7 @@ body .modal-background {
   margin-right: -50vw;
   padding-bottom: 3rem;
 
-  @media (max-width: $screen-small) {
+  @media (max-width: $screen-medium) {
     width: 100vw;
 
     .row div {
