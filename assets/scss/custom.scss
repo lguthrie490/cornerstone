@@ -118,8 +118,23 @@ body {
   }
 
   .heroCarousel {
-    @media (max-width: $screen-small) {
+    @media (max-width: 800px) {
       margin-top: 116px;
+    }
+
+    .heroCarousel-slide {
+      .heroCarousel-content {
+        @media (min-width: $screen-small) {
+          left: 0;
+          margin: 0 auto;
+          padding: 2.25rem;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 50rem;
+        }
+      }
     }
   }
 }
@@ -130,7 +145,11 @@ body {
 //
 // -----------------------------------------------------------------------------
 
-@media (max-width: $screen-small) {
+@media (max-width: $screen-medium) {
+  .navigation-main {
+    display: none;
+  }
+
   .header {
     .mobileMenu-toggle {
       top: 40px;
@@ -294,7 +313,7 @@ body {
   margin-left: -50vw;
   margin-right: -50vw;
 
-  @media (max-width: $screen-small) {
+  @media (max-width: $screen-medium) {
     width: 100vw;
   }
 }
@@ -315,7 +334,7 @@ body {
         font-size: 18px;
         margin-bottom: 0;
 
-        @media (max-width: $screen-small) {
+        @media (max-width: $screen-medium) {
           margin-bottom: 10px;
         }
       }
@@ -344,7 +363,7 @@ body {
         transition: visibility 0.5s ease;
         visibility: visible;
 
-        @media (max-width: $screen-small) {
+        @media (max-width: $screen-medium) {
           display: block;
         }
       }
@@ -362,7 +381,7 @@ body {
           border: 1px solid $grey3;
         }
 
-        @media (max-width: $screen-small) {
+        @media (max-width: $screen-medium) {
           display: none;
         }
       }
@@ -417,6 +436,173 @@ body {
         color: $carousel-button-hover-text_darkblue;
       }
     }
+  }
+}
+
+// -----------------------------------------------------------------------------
+//
+// Cart
+//
+// -----------------------------------------------------------------------------
+.cart {
+  .cart-header {
+    background-color: $banner_purple;
+
+    .cart-header-item {
+      color: $white;
+    }
+  }
+
+  .cart-item {
+    background-color: $white;
+
+    .cart-item-block {
+      .cart-item-image {
+        max-width: 100%;
+      }
+
+      .cart-item-name a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .form-increment {
+    width: 220px;
+  }
+
+  .button--icon {
+    border: none;
+
+    .icon {
+      width: 3rem;
+      height: 3rem;
+
+      svg {
+        fill: $black;
+
+        &:hover {
+          fill: $products-buttons_grey;
+        }
+      }
+    }
+
+    @media (max-width: $screen-small) {
+      float: left;
+    }
+
+  }
+
+  .form-input--incrementTotal {
+    float: left;
+    width: 7rem;
+  }
+
+  .form-input {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: $white;
+    border: none;
+    border-bottom: 3px solid $black;
+  }
+
+  .form-action {
+    margin-right: 130px;
+
+    .button {
+      background-color: $carousel-button_lightblue;
+      color: $carousel-button-text_darkblue;
+      font-weight: bold;
+      font-size: 22px;
+      border: none;
+      text-transform: uppercase;
+      width: auto;
+      height: 3.3rem;
+
+      &:hover {
+        color: $carousel-button-hover-text_darkblue;
+        background-color: $carousel-button-hover_lightblue;
+      }
+
+      &.button-out-of-stock {
+        background-color: $products-buttons_grey;
+        color: $products-buttons_darkgrey;
+        border: none;
+        cursor: default;
+
+        &:hover {
+          background-color: $products-buttons-hover_grey;
+        }
+      }
+    }
+  }
+
+  .form {
+    .form-field {
+      .form-label {
+        margin-left: 0;
+
+        @media (max-width: $screen-small) {
+          text-align: left;
+          margin-left: 72px;
+        }
+      }
+    }
+  }
+}
+
+.cart-actions {
+  margin-bottom: 2rem;
+
+  .button {
+    background-color: $carousel-button_lightblue;
+    color: $carousel-button-text_darkblue;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+
+    &:hover {
+      background-color: $carousel-button-hover_lightblue;
+      color: $carousel-button-hover-text_darkblue;
+    }
+  }
+}
+
+@media (max-width: $screen-small) {
+  .cart-page {
+    margin-top: 150px;
+
+    .cart-item-quantity {
+      text-align: center;
+    }
+
+    .cart-item-name a {
+      font-size: 24px;
+    }
+
+    .cart-item-label {
+      text-align: left;
+      font-size: 22px;
+
+      .form-increment {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+// Preview Modal
+#previewModal {
+  .modal-close {
+    top: 1.05rem;
+  }
+}
+
+.previewCart {
+  .button {
+    border-radius: 0;
   }
 }
 
@@ -713,7 +899,7 @@ body {
       background-color: $white;
 
       .navigation-nav_link {
-        padding: 0 30px;
+        //padding: 0 30px;
 
         &:hover  {
           background-color: $mainmenu-hover_lightpurple;
@@ -978,6 +1164,10 @@ body .modal-background {
       padding-left: 4rem;
       border-right: 2px solid $lightblue2;
 
+      &:last-child {
+        border: none;
+      }
+
       @media (max-width: $screen-small) {
         padding-left: 2rem;
       }
@@ -992,7 +1182,7 @@ body .modal-background {
     }
 
     .footer-info-links, .footer-half {
-      @media (max-width: $screen-medium) {
+      @media (max-width: $screen-small) {
         width: 100%;
         max-width: 100vw;
         border: none;
@@ -1216,9 +1406,21 @@ body .modal-background {
     }
   }
 
+  @media (max-width: $screen-medium) {
+    .home-cards_cards {
+      max-width: 26rem;
+
+      .medium-4 {
+        width: 100%;
+      }
+    }
+  }
+
   .home-cards_cards {
+
     .columns {
-      max-width: 450px;
+      //max-width: 33.333%;
+      //width: auto;
     }
 
     .pricing-table {
@@ -1230,17 +1432,20 @@ body .modal-background {
     }
 
     .title {
-      color: $darkblue4;
-      font-size: 24px;
-      height: 70px;
+      p {
+        color: $darkblue4;
+        font-size: 24px;
+        height: 70px;
+        margin-bottom: 0;
+      }
     }
 
     .description {
       color: $dark-text;
       text-align: left;
       border-bottom: none;
-      min-height: 12rem;
-      height: 85px;
+      //min-height: 12rem;
+      height: 160px;
 
       p {
         font-size: 15px;
@@ -1250,6 +1455,11 @@ body .modal-background {
 
     .cta-button {
       padding: 1rem;
+
+      @media (min-width: $screen-medium) and (max-width: 900px) {
+        padding-top: 3rem;
+        min-height: 7rem;
+      }
     }
 
     .button {
@@ -1260,6 +1470,7 @@ body .modal-background {
       width: 100%;
       font-size: 21px;
       margin: 0;
+      padding: 1rem 0;
 
       &:hover {
         background-color: $homecards-button-hover_darkblue;
@@ -1477,7 +1688,7 @@ body .modal-background {
 // -----------------------------------------------------------------------------
 
 .productView {
-  @media (max-width: $screen-small) {
+  @media (max-width: 800px) {
     margin-top: 140px;
   }
 }
@@ -1701,7 +1912,7 @@ body .modal-background {
   margin-right: -50vw;
   padding-bottom: 3rem;
 
-  @media (max-width: $screen-small) {
+  @media (max-width: $screen-medium) {
     width: 100vw;
 
     .row div {
