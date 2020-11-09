@@ -993,6 +993,7 @@ body {
 
 // QuickSearch
 .quickSearchResults {
+  background-color: $white;
   position: absolute;
   z-index: 1;
 
@@ -1028,6 +1029,11 @@ body .modal-background {
   right: 50%;
   max-width: 300px;
   padding: 10px;
+
+  .modal-close {
+    top: 0;
+    right: 0;
+  }
 
   .close-reveal-modal {
     text-decoration: none;
@@ -1210,6 +1216,19 @@ body .modal-background {
     .social-box {
       width: 50%;
       padding-left: 9%;
+
+      a {
+        text-decoration: none;
+        margin-right: 1rem;
+      }
+
+      svg {
+        fill: $carousel-button_lightblue;
+
+        &:hover {
+          fill: $white;
+        }
+      }
 
       div {
         height: 44px;

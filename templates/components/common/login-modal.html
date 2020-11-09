@@ -1,5 +1,7 @@
 <div id="loginModal" class="login modal reveal-modal login-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-    <a class="close-reveal-modal" aria-label="Close">X</a>
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
     {{#if forms.login.error}}
         {{> components/common/alert-error forms.login.error}}
     {{/if}}
