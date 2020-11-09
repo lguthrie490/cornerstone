@@ -899,11 +899,15 @@ body {
       background-color: $white;
 
       .navigation-nav_link {
-        //padding: 0 30px;
+        padding: 0 1rem;
 
         &:hover  {
           background-color: $mainmenu-hover_lightpurple;
           color: $mainmenu-hover_darkpurple;
+        }
+
+        @media (max-width: $screen-medium) {
+          padding: 0;
         }
 
         .nav-link {
