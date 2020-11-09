@@ -4,7 +4,11 @@
         {{#each blog.recent_posts}}
             <div class="medium-4 columns">
                 <ul class="pricing-table">
-                    <img src="{{thumbnail.data}}" alt="{{thumbnail.alt}}">
+                    {{> components/common/responsive-img
+                            image=thumbnail
+                            fallback_size=theme_settings.blog_size
+                            lazyload=theme_settings.lazyload_mode
+                    }}
                     <li class="title">{{title}}</li>
                     <li class="description"><p>{{summary}}</p></li>
                     <li class="readmore"><a href="{{url}}">Read More</a></li>
