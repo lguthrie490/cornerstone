@@ -1816,6 +1816,10 @@ body .modal-background {
   }
 
   .productView-options {
+    .form {
+
+    }
+
     .button--icon {
       border: none;
 
@@ -1836,6 +1840,19 @@ body .modal-background {
         float: left;
       }
 
+    }
+
+    .auto-ship {
+      display: flex;
+      justify-content: space-evenly;
+
+      .button {
+        border: 3px solid $lightgrey;
+        background: white;
+        color: black;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
     }
 
     .form-input--incrementTotal {
