@@ -102,16 +102,16 @@ header, body {
 
 body {
   background-color: $white;
+}
+
+.body {
+  margin-bottom: 0;
 
   .hasAdminBar {
     .banners {
       margin-top: 0;
     }
   }
-}
-
-.body {
-  margin-bottom: 0;
 
   @media (max-width: $screen-small) {
     overflow-x: hidden;
