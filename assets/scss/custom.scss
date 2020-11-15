@@ -290,6 +290,21 @@ body {
 
 .banner-promo, .banner-signup {
   background-color: $purple1;
+
+  p {
+    color: $white;
+  }
+}
+
+.banner-promo {
+  p {
+    margin: 0.7rem 0;
+    font-size: 17px;
+  }
+
+  a {
+    text-align: center;
+  }
 }
 
 .banner-promo {
@@ -851,12 +866,15 @@ body {
         margin-top: 0;
         margin-bottom: 0;
         margin-left: 25px;
-        //margin-right: 25px;
         line-height: 1.9;
 
         p {
           font-size: 12px;
           margin-bottom: 1.1px;
+
+          &:hover {
+            color: $menu_darkblue-hover;
+          }
         }
 
         a {

@@ -6,7 +6,7 @@
                 {{#each categories}}
                     {{#each children}}
                         <div class="column-health_functions">
-                            <p class="title">{{name}}</p>
+                            <a href="{{url}}"><p class="title">{{name}}</p></a>
                             {{#each children}}
                                 <a href="{{url}}">{{name}}</a>
                             {{/each}}
