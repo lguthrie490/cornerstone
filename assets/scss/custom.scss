@@ -825,10 +825,6 @@ body {
         }
       }
     }
-
-    .right-list {
-      margin-bottom: 1rem;
-    }
   }
 
   .shop_products-right {
@@ -838,6 +834,12 @@ body {
 
     .card-text {
       width: 150px;
+    }
+
+    #rightProductsOutput1, #rightProductsOutput2 {
+      .right-list {
+        margin-bottom: 1rem;
+      }
     }
   }
 }

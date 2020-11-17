@@ -14,6 +14,7 @@ import carousel from './common/carousel';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
 import objectFitImages from './global/object-fit-polyfill';
+import featuredProductsQuery from './global/featuredProductsQuery';
 
 export default class Global extends PageManager {
     onReady() {
@@ -35,6 +36,9 @@ export default class Global extends PageManager {
         loadingProgressBar();
         svgInjector();
         objectFitImages();
+
+        let featuredProductsJson;
+        featuredProductsJson = featuredProductsQuery(this.context.storefrontAPIToken);
 
         // Accordion - Mobile Navigation
         (function ($) {

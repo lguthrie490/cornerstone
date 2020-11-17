@@ -26,6 +26,7 @@ const GET_FEATURED_PRODUCTS = gql`
                         }
                         defaultImage {
                             url (width: 200)
+                            altText
                         }
                     }
                 }
@@ -42,27 +43,152 @@ function getFeaturedProducts(token) {
 
     client.query({
         query: GET_FEATURED_PRODUCTS
-    }).then(data => putInPage(data))
+    }).then(data => reduceData(data))
         .catch(error => console.error(error))
 }
 
-function putInPage(data) {
-    let reducedData = reduceData(data)
+function firstProductOutput(product, featuredDescription) {
+    let productHtml = `
+    <article class="card left-card">
+        <a href="${product.node.path}">
+            <div class="card-img-container">
+                <img src="${product.node.defaultImage.url}" alt="${product.node.defaultImage.altText}">
+            </div>
+        </a>
+        <div class="card-body">
+            <div class="card-text">
+                <h4 class="card-title">
+                    <a href="${product.node.path}">${product.node.name}</a>
+                </h4>
 
-    document.getElementById('test123').innerHTML = reducedData;
+                <div class="card-summary">
+                    ${featuredDescription}
 
-    //console.log(data);
+                    <a href="${product.node.path}">Learn More »</a>
+                </div>
+            </div>
+        </div>
+    </article>`
 
-    //reduceData(data);
+    document.getElementById('firstProductOutput').innerHTML = productHtml;
 }
 
+function centerProductOutputs(product, featuredDescription) {
+    let productHtml = `
+    <article class="card center-column">
+        <a href="${product.node.path}">
+            <div class="card-img-container">
+                <img src="${product.node.defaultImage.url}" alt="${product.node.defaultImage.altText}">
+            </div>
+        </a>
+        <div class="card-body">
+            <div class="card-text">
+                <h4 class="card-title">
+                    <a href="${product.node.path}">${product.node.name}</a>
+                </h4>
+
+                <div class="card-summary" data-test-info-type="price">
+                    ${featuredDescription}
+                    <a href="${product.node.path}">Learn More »</a>
+                </div>
+            </div>
+        </div>
+    </article>`
+
+    document.getElementById('centerProductsOutput').innerHTML += productHtml;
+}
+
+function rightProductOutputs(product, index, featuredDescription) {
+    let productHtml = `
+    <article class="card right-list">
+        <div class="card-body">
+            <div class="card-text">
+                <h4 class="card-title">
+                    <a href="${product.node.path}">${product.node.name}</a>
+                </h4>
+                <div class="card-summary" data-test-info-type="price">
+                    ${featuredDescription}
+                    <br>
+                    <a href="${product.node.path}">Learn More »</a>
+                </div>
+            </div>
+        </div>
+    </article>`
+
+    switch (index) {
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+        document.getElementById('rightProductsOutput1').innerHTML += productHtml;
+        break;
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+        document.getElementById('rightProductsOutput2').innerHTML += productHtml;
+        break;
+    }
+}
+
+/**
+ *
+ * @param customFields
+ * @returns {string}
+ */
+function getFeaturedDescriptionValue(customFields) {
+    return customFields.edges.map(
+        (node) => getFeaturedDescription(node)
+    ).toString();
+}
+
+/**
+ *
+ * @param node
+ * @returns {*}
+ */
+function getFeaturedDescription(node) {
+    if (node.node.name === "featured_description") {
+        return node.node.value;
+    }
+}
+
+/**
+ *
+ * @param data
+ * @returns {void[]}
+ */
 function reduceData(data) {
     return data.data.site.featuredProducts.edges.map(
-        node => productOutput(node)
-    ).reduce((productsHtml, productHtml) => productsHtml += productHtml);
+        (node, index) => productOutput(node, index)
+    );
 }
 
-function productOutput(product) {
-    return `
-    <h1>${product.node.name}</h1>`
+/**
+ *
+ * @param product
+ * @param index
+ */
+function productOutput(product, index) {
+    switch (index) {
+    case 0:
+        firstProductOutput(product, getFeaturedDescriptionValue(product.node.customFields));
+        break;
+    case 1:
+    case 2:
+        centerProductOutputs(product, getFeaturedDescriptionValue(product.node.customFields));
+        break;
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+        rightProductOutputs(product, index, getFeaturedDescriptionValue(product.node.customFields))
+        break;
+    default:
+        break;
+    }
 }
