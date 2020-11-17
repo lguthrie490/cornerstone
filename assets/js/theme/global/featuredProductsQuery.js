@@ -133,6 +133,31 @@ function rightProductOutputs(product, index, featuredDescription) {
 
 /**
  *
+ * @param product
+ * @param featuredDescription
+ */
+function mobileProductsOutput(product, featuredDescription) {
+    let productHtml = `
+    <article class="card right-list">
+        <div class="card-body">
+            <div class="card-text">
+                <h4 class="card-title">
+                    <a href="${product.node.path}">${product.node.name}</a>
+                </h4>
+                <div class="card-summary" data-test-info-type="price">
+                    ${featuredDescription}
+                    <br>
+                    <a href="${product.node.path}">Learn More »</a>
+                </div>
+            </div>
+        </div>
+    </article>`
+
+    document.getElementById('mobileFeaturedProducts').innerHTML += productHtml;
+}
+
+/**
+ *
  * @param customFields
  * @returns {string}
  */
@@ -170,13 +195,17 @@ function reduceData(data) {
  * @param index
  */
 function productOutput(product, index) {
+    let featuredDescriptionValue = getFeaturedDescriptionValue(product.node.customFields);
+
+    mobileProductsOutput(product, featuredDescriptionValue);
+
     switch (index) {
     case 0:
-        firstProductOutput(product, getFeaturedDescriptionValue(product.node.customFields));
+        firstProductOutput(product, featuredDescriptionValue);
         break;
     case 1:
     case 2:
-        centerProductOutputs(product, getFeaturedDescriptionValue(product.node.customFields));
+        centerProductOutputs(product, featuredDescriptionValue);
         break;
     case 3:
     case 4:
@@ -186,7 +215,7 @@ function productOutput(product, index) {
     case 8:
     case 9:
     case 10:
-        rightProductOutputs(product, index, getFeaturedDescriptionValue(product.node.customFields))
+        rightProductOutputs(product, index, featuredDescriptionValue)
         break;
     default:
         break;
