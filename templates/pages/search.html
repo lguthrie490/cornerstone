@@ -18,7 +18,7 @@ products:
 
 {{#partial "page"}}
 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-<section class="nav">
+<section class="nav search-nav">
     {{#if forms.search.query}}
         <div id="search-results-heading">
             {{>components/search/heading}}
@@ -67,7 +67,7 @@ products:
                 <div class="panel-body">
                     {{#if forms.search.suggested_query}}
                         <div class="search-suggestion">
-                            {{lang 'forms.search.did_you_mean'}} <strong>{{forms.search.suggested_query.query}}</strong>
+                            {{lang 'forms.search.did_you_mean'}} <strong>{{forms.search.suggested_query.query}}</strong><br>
                             <a href="{{forms.search.suggested_query.url}}" class="search-refine">{{lang 'forms.search.refine'}}</a>
                         </div>
 
