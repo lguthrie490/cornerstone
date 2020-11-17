@@ -147,7 +147,43 @@ body {
 //
 // -----------------------------------------------------------------------------
 
+@media (max-width: $screen-small) {
+  .panel-body {
+    .search-suggestion {
+      .search-refine {
+        margin-left: 0;
+      }
+    }
+
+    .category-suggestion-list {
+      .category-suggestion {
+        width: 100%;
+        float: none;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-small) {
+  .pages\/category {
+    .page-heading {
+      display: none;
+    }
+
+    .page {
+      #faceted-search-container {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
 @media (max-width: $screen-medium) {
+  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product {
+    margin-top: 140px;
+  }
+
   .navigation-main {
     display: none;
   }
@@ -919,6 +955,7 @@ body {
   }
 
   .top-bar {
+    background: $white;
     .top-bar-section {
       display: flex;
       justify-content: space-evenly;
