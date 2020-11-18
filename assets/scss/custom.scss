@@ -141,6 +141,12 @@ body {
   }
 }
 
+@media (min-width: 1261px) {
+  .container {
+    margin-top: 2rem;
+  }
+}
+
 // -----------------------------------------------------------------------------
 //
 // Mobile-specific objects
