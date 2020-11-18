@@ -355,18 +355,20 @@ body {
   }
 }
 
-// @todo needs testing on all sizes/browsers
-.banner-signup, .banner-practitioner, .banner-footer, .banner-shopall-mobile {
-  // @todo This is not the correct way to do this,but it works for now
-  width: 99.3vw;
+.banner-signup, .banner-practitioner, .banner-footer, .banner-shopall-mobile, .product-testimonials {
+  overflow: auto;
+  width: 100vw;
   max-width: 100vw;
   position: relative;
-  left: 50%;
-  right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+  // Container is not true center on larger devices, thus requiring offset of ~.8%. Not my chair, not my problem
+  right: 50.8%;
+  left: 49.2%;
 
   @media (max-width: $screen-medium) {
+    right: 50%;
+    left: 50%;
     width: 100vw;
   }
 }
@@ -2007,18 +2009,9 @@ body .modal-background {
 
 .product-testimonials {
   background-color: $lightblue1;
-  width: 99.3vw;
-  max-width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
   padding-bottom: 3rem;
 
   @media (max-width: $screen-medium) {
-    width: 100vw;
-
     .row div {
       width: 100%;
     }
