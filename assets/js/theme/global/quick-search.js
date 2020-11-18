@@ -3,22 +3,21 @@ import utils from '@bigcommerce/stencil-utils';
 import StencilDropDown from './stencil-dropdown';
 
 export default function () {
-    const TOP_STYLING = 'top: 49px;';
+    const TOP_STYLING = 'top: 62px;';
     const $quickSearchResults = $('.quickSearchResults');
-    const $quickSearchDiv = $('#quickSearch');
-    const $quickSearchResultsDiv = $('#quickSearchResults');
-    const $searchQuery = $('#search_query');
+    const $quickSearchExpand = $('#quick-search-expand');
+    const $resultsContainer = $('#resultsContainer');
     const stencilDropDownExtendables = {
         hide: () => {
-            $searchQuery.trigger('blur');
+            $quickSearchExpand.attr('aria-expanded', false);
         },
         show: (event) => {
-            $searchQuery.trigger('focus');
+            $quickSearchExpand.attr('aria-expanded', true);
             event.stopPropagation();
         },
     };
     const stencilDropDown = new StencilDropDown(stencilDropDownExtendables);
-    stencilDropDown.bind($('[data-search="quickSearch"]'), $quickSearchResultsDiv, TOP_STYLING);
+    stencilDropDown.bind($('[data-search="quickSearch"]'), $resultsContainer, TOP_STYLING);
 
     stencilDropDownExtendables.onBodyClick = (e, $container) => {
         // If the target element has this data tag or one of it's parents, do not close the search results
@@ -51,14 +50,15 @@ export default function () {
         doSearch(searchQuery);
     });
 
-    // Catch the submission of the quick-search
-    $quickSearchDiv.on('submit', event => {
-        const searchQuery = $(event.currentTarget).find('input').val();
-
-        if (searchQuery.length === 0) {
-            return event.preventDefault();
-        }
-
-        return true;
-    });
+    //Catch the submission of the quick-search
+    // Not currently in use, but keeping here in case of request
+    // $quickSearchDiv.on('submit', event => {
+    //     const searchQuery = $(event.currentTarget).find('input').val();
+    //
+    //     if (searchQuery.length === 0) {
+    //         return event.preventDefault();
+    //     }
+    //
+    //     return true;
+    // });
 }

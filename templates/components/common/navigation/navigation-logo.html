@@ -70,18 +70,23 @@
             </li>
 
             <li>
-                <form class="form" action="{{urls.search}}">
-                    <fieldset class="form-fieldset">
-                        <div class="form-field">
-                            <input class="form-input" data-search-quick name="search_query" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="Type to Search" autocomplete="off">
-                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                            </svg>
-                        </div>
-                    </fieldset>
-                </form>
-                <section class="quickSearchResults" id="quickSearchResults" data-bind="html: results"></section>
+                <div id="quick-search-expand" data-search="quickSearch">
+                    <form class="form" onsubmit="return false" data-url="/search.php" data-quick-search-form>
+                        <fieldset class="form-fieldset">
+                            <div id="quickSearchForm" class="form-field">
+                                <input class="form-input" data-search-quick name="search_query" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="Type to Search" autocomplete="off">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                    <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                                </svg>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div id="resultsContainer">
+                    <section class="quickSearchResults" data-bind="html: results"></section>
+                </div>
             </li>
 
             <li class="navUser-item search-button">

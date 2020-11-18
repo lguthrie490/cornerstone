@@ -142,7 +142,7 @@ body {
 }
 
 @media (min-width: 1261px) {
-  .container {
+  .pages\/home {
     margin-top: 2rem;
   }
 }
@@ -1086,24 +1086,39 @@ body {
 }
 
 // QuickSearch
+#resultsContainer {
+  visibility: hidden;
+
+  &.is-open {
+    visibility: unset;
+  }
+}
+
 .quickSearchResults {
+  //top: 62px;
   background-color: $white;
   position: absolute;
   z-index: 1;
+  border: 1px solid $lightgrey;
+  border-bottom: 4px solid $homecards-button_darkblue;
 
   .product {
     width: 100%;
 
     .card {
+      margin-bottom: 0;
       border: none;
 
       &:hover > .card-body {
         background-color: $white;
-        color: $grey1;
 
         h4, a, .card-text {
           color: $grey1;
         }
+      }
+
+      .card-img-container, .card-figure {
+        border: none;
       }
     }
   }
