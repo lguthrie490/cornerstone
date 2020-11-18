@@ -1882,8 +1882,17 @@ body .modal-background {
   }
 
   .productView-options {
-    .form {
+    @media (max-width: $screen-small) {
+      .form {
+        .form-increment, .form-action {
+          display: flex;
+          justify-content: center;
+        }
 
+        .form-action {
+          margin-right: 0;
+        }
+      }
     }
 
     .button--icon {
@@ -1896,8 +1905,10 @@ body .modal-background {
         svg {
           fill: $black;
 
-          &:hover {
-            fill: $products-buttons_grey;
+          @media (min-width: $screen-medium) {
+            &:hover {
+              fill: $products-buttons_grey;
+            }
           }
         }
       }
