@@ -186,7 +186,7 @@ body {
 }
 
 @media (max-width: $screen-medium) {
-  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post, .pages\/cart, .pages\/page {
+  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post, .pages\/cart, .pages\/page, .pages\/auth\/create-account {
     margin-top: 140px;
   }
 
@@ -895,6 +895,8 @@ body {
   }
 
   .shop_products-right {
+    margin-top: 1.6rem;
+
     .card-title {
       margin-bottom: 0;
     }
@@ -1471,6 +1473,10 @@ body .modal-background {
   .banner-footer {
     background-color: $white;
     color: $black;
+
+    p, a {
+      margin-right: 1rem;
+    }
 
     p {
       display: inline;
