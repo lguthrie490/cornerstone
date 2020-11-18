@@ -186,7 +186,7 @@ body {
 }
 
 @media (max-width: $screen-medium) {
-  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post {
+  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post, .pages\/cart {
     margin-top: 140px;
   }
 
@@ -631,6 +631,29 @@ body {
     &:hover {
       background-color: $carousel-button-hover_lightblue;
       color: $carousel-button-hover-text_darkblue;
+    }
+  }
+}
+
+.previewCart {
+  background: $white;
+  border: 1px solid $grey1;
+
+  .previewCartAction {
+    .previewCartAction-checkout, .previewCartAction-viewCart {
+      .button {
+        background-color: $carousel-button_lightblue;
+        color: $carousel-button-text_darkblue;
+        border: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 11px;
+
+        &:hover {
+          background-color: $carousel-button-hover_lightblue;
+          color: $carousel-button-hover-text_darkblue;
+        }
+      }
     }
   }
 }
@@ -2116,6 +2139,37 @@ body .modal-background {
     .actionBar-section {
       .form-field {
         border-radius: 0;
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+//
+// Checkout
+//
+// -----------------------------------------------------------------------------`
+
+.swal2-container {
+  .swal2-modal {
+    font-family: montserrat, sans-serif;
+    border-radius: 0;
+  }
+
+  .swal2-actions {
+    .button {
+      font-family: montserrat, sans-serif;
+      border-radius: 0;
+      background-color: $carousel-button_lightblue;
+      color: $carousel-button-text_darkblue;
+      border: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      //font-size: 11px;
+
+      &:hover {
+        background-color: $carousel-button-hover_lightblue;
+        color: $carousel-button-hover-text_darkblue;
       }
     }
   }
