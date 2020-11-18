@@ -186,7 +186,7 @@ body {
 }
 
 @media (max-width: $screen-medium) {
-  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post, .pages\/cart {
+  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post, .pages\/cart, .pages\/page {
     margin-top: 140px;
   }
 
@@ -1095,19 +1095,70 @@ body {
 }
 
 .quickSearchResults {
-  //top: 62px;
   background-color: $white;
   position: absolute;
   z-index: 1;
-  border: 1px solid $lightgrey;
-  border-bottom: 4px solid $homecards-button_darkblue;
+  right: 1rem;
+  max-width: 33.3%;
+
+  @media (max-width: $screen-medium) {
+
+    #quickSearchResults {
+      padding: 1rem;
+    }
+
+    .productGrid {
+      .product {
+        .card-body {
+          display: block;
+          padding: 0 1rem;
+
+          .card-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: $screen-small) and (max-width: $screen-medium) {
+    max-width: 100%;
+    width: 100%;
+
+    .productGrid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .product {
+        width: 33.3%;
+      }
+    }
+  }
+
+  @media (max-width: $screen-small) {
+    max-width: 100%;
+  }
+
+
+  #quickSearchResults {
+    border: 1px solid $lightgrey;
+    //border-bottom: 4px solid $homecards-button_darkblue;
+  }
+
+  .productGrid {
+    margin-bottom: 0;
+  }
 
   .product {
     width: 100%;
 
-    .card {
+    .card, .card--alternate {
       margin-bottom: 0;
       border: none;
+      border-bottom: 4px solid $homecards-button_darkblue;
 
       &:hover > .card-body {
         background-color: $white;
@@ -1121,6 +1172,7 @@ body {
         border: none;
       }
     }
+
   }
 }
 // -----------------------------------------------------------------------------
