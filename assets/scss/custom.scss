@@ -91,6 +91,22 @@ $mobilenav-shopall-border_purple: rgb(134,113,130);
 //
 // -----------------------------------------------------------------------------
 
+
+.button {
+  border-radius: 0;
+  background-color: $carousel-button_lightblue;
+  color: $carousel-button-text_darkblue;
+  border: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+
+  &:hover {
+    background-color: $carousel-button-hover_lightblue;
+    color: $carousel-button-hover-text_darkblue;
+  }
+}
+
 .alertBox {
   border-radius: 0;
 }
