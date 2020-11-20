@@ -11,12 +11,15 @@ import { classifyForm } from './common/form-utils';
 export default class Product extends PageManager {
     constructor(context) {
         super(context);
+        this.productId = context.productId;
         this.url = window.location.href;
         this.$reviewLink = $('[data-reveal-id="modal-review-form"]');
         this.$bulkPricingLink = $('[data-reveal-id="modal-bulk-pricing"]');
     }
 
     onReady() {
+        this.productSuggestedUseHandler();
+
         // Listen for foundation modal close events to sanitize URL after review.
         $(document).on('close.fndtn.reveal', () => {
             if (this.url.indexOf('#write_review') !== -1 && typeof window.history.replaceState === 'function') {
@@ -90,5 +93,18 @@ export default class Product extends PageManager {
         if (this.url.indexOf('#bulk_pricing') !== -1) {
             this.$bulkPricingLink.trigger('click');
         }
+    }
+
+    productSuggestedUseHandler() {
+        let strippedUrl = this.url.match(/\/([^\/]+)\/?$/)[1];
+
+        let initAjax = $.ajax({
+            url: '/assets/product-data/suggested-use/' + strippedUrl + '.html',
+            success: (data) => {return data}
+        });
+
+        initAjax.then((res) => {
+            document.getElementById('suggestedUse').innerHTML = res;
+        });
     }
 }
