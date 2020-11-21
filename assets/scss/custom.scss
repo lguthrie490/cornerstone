@@ -11,9 +11,6 @@ $button-light-hover_darkblue: rgb(41,66,110);
 
 $button-dark-hover-blue: rgb(71,105,153);
 
-$button-hover-practitioner-banner_lightblue: rgb(150,182,220);
-$button-hover-practitioner-banner_darkblue: rgb(41,66,110);
-
 $mainmenu-hover_lightpurple: rgba(180,153,175, 0.22);
 $mainmenu-hover_darkpurple: rgb(97,76,92);
 
@@ -90,6 +87,21 @@ $mobilenav-shopall-border_purple: rgb(134,113,130);
 // Components
 //
 // -----------------------------------------------------------------------------
+
+.card-text {
+  h4 a {
+    color: $black;
+  }
+
+  a {
+    color: $shop-products_darkorange;
+    text-decoration: none;
+
+    &:hover {
+      color: $shop-products_darkorange_hover;
+    }
+  }
+}
 
 .button {
   border-radius: 0;
@@ -665,21 +677,6 @@ body {
 
 .cart-actions {
   margin-bottom: 2rem;
-
-  .button {
-    background-color: $carousel-button_lightblue;
-    color: $carousel-button-text_darkblue;
-    border: none;
-    border-radius: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 18px;
-
-    &:hover {
-      background-color: $carousel-button-hover_lightblue;
-      color: $carousel-button-hover-text_darkblue;
-    }
-  }
 }
 
 .previewCart {
@@ -784,6 +781,9 @@ body {
     }
 
     .navUser-action {
+      font-weight: normal;
+      text-transform: unset;
+
       &:hover {
         color: $grey1;
       }
@@ -853,13 +853,6 @@ body {
     .left, .right {
       li {
         list-style: none;
-
-        a {
-          font-weight: normal;
-          text-transform: none;
-          background: $white;
-          color: $black;
-        }
       }
     }
   }
@@ -885,16 +878,6 @@ body {
       margin-bottom: 0;
       line-height: 1.2;
       color: $black;
-    }
-
-    .card-summary a {
-      color: $shop-products_darkorange;
-      text-decoration: none;
-      //font-weight: normal;
-
-      &:hover {
-        color: $shop-products_darkorange_hover;
-      }
     }
   }
 
@@ -1204,6 +1187,12 @@ body {
 
   .productGrid {
     margin-bottom: 0;
+
+    .card-title, .card-text {
+      a {
+        transition: none;
+      }
+    }
   }
 
   .product {
@@ -1214,11 +1203,12 @@ body {
       border: none;
       border-bottom: 4px solid $homecards-button_darkblue;
 
+      // Override
       &:hover > .card-body {
         background-color: $white;
 
-        h4, a, .card-text {
-          color: $grey1;
+        .card-title a {
+          color: $black;
         }
       }
 
@@ -1807,10 +1797,8 @@ body .modal-background {
 
       .card-figcaption {
         .card-figcaption-body {
+          // Have to set these manually because this is dynamically generated
           .button {
-            border-radius: 0;
-            text-transform: uppercase;
-            font-weight: bold;
             background-color: $carousel-button_lightblue;
             color: $carousel-button-text_darkblue;
 
@@ -1840,17 +1828,17 @@ body .modal-background {
       }
 
       .card-text {
-        color: $black;
+        color: #757575;
 
         a {
           text-decoration: none;
-
-          &:hover {
-            color: $banner_purple;
-          }
         }
       }
     }
+  }
+
+  input[type="checkbox"] {
+    margin: 0;
   }
 }
 
