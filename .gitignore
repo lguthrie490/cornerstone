@@ -10,3 +10,4 @@ vendor/bundle
 *.zip
 .idea/
 package-lock.json
+assets/product_data
