@@ -553,6 +553,12 @@ body {
 
   .form-increment {
     width: 220px;
+
+    button {
+      &:hover, &:focus {
+        background-color: $white !important;
+      }
+    }
   }
 
   .button--icon {
@@ -657,6 +663,10 @@ body {
 .previewCart {
   background: $white;
   border: 1px solid $grey1;
+
+  @media (max-width: $screen-medium) {
+    border: none;
+  }
 
   .previewCartAction {
     .previewCartAction-checkout, .previewCartAction-viewCart {
@@ -1123,6 +1133,7 @@ body {
   max-width: 33.3%;
 
   @media (max-width: $screen-medium) {
+    right: 0;
 
     #quickSearchResults {
       padding: 1rem;
@@ -1985,6 +1996,7 @@ body .modal-background {
           font-weight: bold;
           padding: 5px 15px;
           z-index: 3;
+          text-transform: unset;
 
           &:hover {
             background-color: $grey3;
