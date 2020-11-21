@@ -205,7 +205,7 @@ body {
 }
 
 @media (max-width: $screen-medium) {
-  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post, .pages\/cart, .pages\/page, .pages\/auth\/create-account {
+  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post, .pages\/cart, .pages\/page, .pages\/auth\/create-account, .pages\/auth\/login {
     margin-top: 140px;
   }
 
@@ -547,6 +547,12 @@ body {
 
       .cart-item-name a {
         text-decoration: none;
+      }
+    }
+
+    @media (max-width: $screen-medium) {
+      .cart-item-figure {
+        margin-top: 55px;
       }
     }
   }
@@ -1908,6 +1914,33 @@ body .modal-background {
 //
 // -----------------------------------------------------------------------------
 
+// @todo this needs to move
+.productView-options, .cart-item-info {
+  .button--icon {
+    border: none;
+    background-color: $white;
+
+    .icon {
+      width: 3rem;
+      height: 3rem;
+
+      svg {
+        fill: $black;
+
+        @media (min-width: $screen-medium) {
+          &:hover {
+            fill: $products-buttons_grey;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $screen-small) {
+      float: left;
+    }
+  }
+}
+
 .productView {
   @media (max-width: 800px) {
     margin-top: 140px;
@@ -2026,30 +2059,6 @@ body .modal-background {
           margin-right: 0;
         }
       }
-    }
-
-    .button--icon {
-      border: none;
-
-      .icon {
-        width: 3rem;
-        height: 3rem;
-
-        svg {
-          fill: $black;
-
-          @media (min-width: $screen-medium) {
-            &:hover {
-              fill: $products-buttons_grey;
-            }
-          }
-        }
-      }
-
-      @media (max-width: $screen-small) {
-        float: left;
-      }
-
     }
 
     .auto-ship {
