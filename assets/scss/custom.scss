@@ -87,25 +87,48 @@ $mobilenav-shopall-border_purple: rgb(134,113,130);
 
 // -----------------------------------------------------------------------------
 //
-// Overrides
+// Components
 //
 // -----------------------------------------------------------------------------
 
-
 .button {
   border-radius: 0;
-  background-color: $carousel-button_lightblue;
-  color: $carousel-button-text_darkblue;
   border: none;
-  text-transform: uppercase;
   font-weight: bold;
   font-size: 18px;
+  padding: 1rem;
+}
+
+.button--light {
+  background-color: $carousel-button_lightblue;
+  color: $carousel-button-text_darkblue;
+  text-transform: uppercase;
 
   &:hover {
     background-color: $carousel-button-hover_lightblue;
     color: $carousel-button-hover-text_darkblue;
   }
 }
+
+.button--dark {
+  background-color: #444444;
+  color: $white;
+  text-transform: uppercase;
+  border: 1px solid #444444;
+  transition: visibility 0.5s ease;
+  visibility: hidden;
+
+  &:hover {
+    background-color: $grey3;
+    border: 1px solid $grey3;
+  }
+}
+
+// -----------------------------------------------------------------------------
+//
+// Overrides
+//
+// -----------------------------------------------------------------------------
 
 .alertBox {
   border-radius: 0;
@@ -453,17 +476,10 @@ body {
       }
 
       .button {
-        padding: 1rem;
+        font-size: 1rem;
         text-transform: uppercase;
-        font-weight: bold;
-        border: 1px solid #444444;
         transition: visibility 0.5s ease;
         visibility: hidden;
-
-        &:hover {
-          background-color: $grey3;
-          border: 1px solid $grey3;
-        }
 
         @media (max-width: $screen-medium) {
           display: none;
@@ -2026,10 +2042,11 @@ body .modal-background {
           background: $grey2;
           border-radius: 20px;
           color: $white;
-          font-weight: bold;
+          font-weight: 700;
           padding: 5px 15px;
           z-index: 3;
           text-transform: unset;
+          font-size: 1rem;
 
           &:hover {
             background-color: $grey3;
