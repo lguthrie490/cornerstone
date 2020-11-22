@@ -1,7 +1,11 @@
-
 $font-big: 2.4rem;
 
 $spacing-size-1: 2.5rem;
+
+$carouselContent: 24rem;
+$carouselTitle: 2.6rem;
+$carouselDescription: 2.2rem;
+$tesseract: 1rem;
 
 $banner_purple: rgb(180,153,175);
 $banner_darkpurple: rgb(97,76,92);
@@ -179,16 +183,131 @@ body {
     }
 
     .heroCarousel-slide {
+      .bigWhiteRectangle {
+        height: 50rem;
+        background-color: $white;
+        position: absolute;
+        width: 30vw;
+        overflow: hidden;
+        bottom: 0;
+        right: 0;
+
+        .button {
+          // lazy way to position button
+          margin-top: -7vw;
+          background-color: $white;
+          text-transform: uppercase;
+          color: $black;
+
+          &:hover {
+            background-color: $white;
+            color: $products-buttons-hover_grey;
+          }
+
+          @media (max-width: 1000px) {
+            margin-top: -5vw;
+          }
+
+          @media (max-width: 750px) {
+            margin-top: -7vw;
+            font-size: 12px;
+          }
+
+          @media (max-width: 440px) {
+            display: none;
+          }
+        }
+      }
+
       .heroCarousel-content {
-        @media (min-width: $screen-small) {
-          left: 0;
-          margin: 0 auto;
-          padding: 2.25rem;
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 50rem;
+        left: 40vw;
+        margin: 0 auto;
+        padding: 3.8rem 1rem 2rem 3rem;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: $carouselContent;
+
+        .heroCarousel-title {
+          font-size: $carouselTitle;
+          margin-bottom: 2.2rem;
+          font-weight: 900;
+          letter-spacing: 1.2px;
+        }
+
+        .heroCarousel-description {
+          font-size: $carouselDescription;
+          font-weight: lighter;
+          line-height: 1.2;
+        }
+
+        .tesseract {
+          font-size: 1rem;
+          text-transform: uppercase;
+          font-weight: bold;
+          color: $products-buttons_grey;
+          margin-bottom: 0;
+        }
+
+        @media (max-width: 910px) {
+          width: $carouselContent - 4rem;
+          padding: 2.8rem 1rem 1.4rem 2.8rem;
+
+          .heroCarousel-title {
+            font-size: $carouselTitle - 0.5rem;
+          }
+
+          .heroCarousel-description {
+            font-size: $carouselDescription - 0.5rem;
+          }
+
+          .tesseract {
+            font-size: $tesseract - 0.2rem;
+          }
+        }
+
+        @media (max-width: 750px) {
+          width: 14.8rem;
+          padding: 1.8rem 0.8rem 1rem 1.8rem;
+
+          .heroCarousel-title {
+            font-size: $carouselTitle - 1rem;
+            margin-bottom: 1.2rem;
+          }
+
+          .heroCarousel-description {
+            font-size: $carouselDescription - 1rem;
+            padding-right: 20px;
+          }
+
+          .tesseract {
+            font-size: $tesseract - 0.4rem;
+          }
+        }
+
+        @media (max-width: 565px) {
+          width: 20rem;
+          left: 25vw;
+        }
+
+        @media (max-width: 400px) {
+          width: 17rem;
+          left: 30vw;
+          padding: 0.8rem 0.8rem 0.6rem 1rem;
+
+          .heroCarousel-title {
+            margin-bottom: 0.4rem;
+          }
+
+          .heroCarousel-description {
+            margin-bottom: 0;
+            padding-right: 0;
+          }
+
+          .tesseract {
+            display: none;
+          }
         }
       }
     }
@@ -1579,7 +1698,7 @@ body .modal-background {
     }
 
     .heroCarousel-content {
-      background-color: rgba(0,0,0,0);
+      background-color: $black;
       text-align: left;
 
       @media (max-width: $screen-small) {
@@ -1588,31 +1707,11 @@ body .modal-background {
       }
 
       .heroCarousel-title, .heroCarousel-description {
-        color: black;
+        color: $white;
         font-weight: bold;
 
         @media (max-width: $screen-small) {
           font-size: 34px;
-        }
-      }
-
-      .heroCarousel-description {
-        font-size: 36px;
-      }
-
-      .heroCarousel-action {
-        padding: 1.2rem 2.8rem;
-        border: none;
-        border-radius: 0;
-        background-color: $carousel-button_lightblue;
-        color: $carousel-button-text_darkblue;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 16px;
-
-        &:hover {
-          color: $carousel-button-hover-text_darkblue;
-          background-color: $carousel_button-hover_lightblue;
         }
       }
     }
