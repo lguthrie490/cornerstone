@@ -182,6 +182,12 @@ body {
       margin-top: 116px;
     }
 
+    .slick-slide {
+      @media (max-width: $screen-small) {
+        height: 22rem;
+      }
+    }
+
     .heroCarousel-slide {
       .bigWhiteRectangle {
         height: 50rem;
@@ -191,6 +197,7 @@ body {
         overflow: hidden;
         bottom: 0;
         right: 0;
+        top: 0;
 
         .button {
           // lazy way to position button
@@ -287,27 +294,20 @@ body {
         }
 
         @media (max-width: 565px) {
-          width: 20rem;
+          width: 16rem;
           left: 25vw;
         }
 
-        @media (max-width: 400px) {
-          width: 17rem;
-          left: 30vw;
-          padding: 0.8rem 0.8rem 0.6rem 1rem;
+        @media (max-width: 551px) {
+          top: 70%;
+        }
 
-          .heroCarousel-title {
-            margin-bottom: 0.4rem;
-          }
+        @media (max-width: 451px) {
+          top: 100%;
+        }
 
-          .heroCarousel-description {
-            margin-bottom: 0;
-            padding-right: 0;
-          }
-
-          .tesseract {
-            display: none;
-          }
+        @media (max-width: 351px) {
+          top: 120%;
         }
       }
     }
