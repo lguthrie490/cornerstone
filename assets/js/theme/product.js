@@ -107,14 +107,27 @@ export default class Product extends PageManager {
 
     productAjaxHtml(type) {
         let strippedUrl = this.url.match(/\/([^\/]+)\/?$/)[1];
+        let testimonialHtml = '<h3>What People Are Saying</h3>';
+        let fdaHtml = '<div class="fda-text"><p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p></div>';
+        let suggestedHtml = '<h3>Suggested Use</h3>';
 
-        let initAjax = $.ajax({
+        $.ajax({
             url: '/content/product_data/'+ type + '/' + strippedUrl + '.html',
-            success: (data) => {return data}
-        });
-
-        initAjax.then((res) => {
-            document.getElementById(type).innerHTML = res;
+            success: (data) => {
+                if (type === 'testimonials') {
+                    document.getElementById(type).innerHTML = testimonialHtml + data + fdaHtml;
+                } else if (type === 'suggested-use') {
+                    document.getElementById(type).innerHTML = suggestedHtml + data;
+                } else {
+                    document.getElementById(type).innerHTML = '';
+                }
+            },
+            cache: false,
+            error: (xhr, ajaxOptions, thrownError) => {
+                if (xhr.status == 404) {
+                    return '';
+                }
+            }
         });
     }
 }
