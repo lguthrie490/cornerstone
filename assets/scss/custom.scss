@@ -617,6 +617,14 @@ body {
         }
       }
     }
+
+    form {
+      height: 45px;
+
+      @media (max-width: 940px) {
+        height: unset;
+      }
+    }
   }
 }
 
