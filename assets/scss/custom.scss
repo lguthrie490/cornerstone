@@ -1215,6 +1215,7 @@ body {
 
   .top-bar {
     background: $white;
+
     .top-bar-section {
       display: flex;
       justify-content: space-evenly;
@@ -1222,6 +1223,12 @@ body {
 
       .navigation-nav_link {
         padding: 0 1rem;
+
+        &.single {
+          .nav-link {
+            cursor: pointer;
+          }
+        }
 
         &:hover  {
           background-color: $mainmenu-hover_lightpurple;
