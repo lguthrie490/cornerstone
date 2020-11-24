@@ -421,10 +421,8 @@ body {
 
     .active {
       // Safari Fix
-      border-left: none;
-      border-right: none;
-      border-bottom: none;
-      border-top: 4px solid;
+      border-width: 0 0 4px 0;
+      border-style: solid;
       border-image-slice: 1;
       border-image-source: linear-gradient(90deg, $white, $mainmenu-hover_lightpurple, $white);
       padding-top: 1rem;
@@ -1230,6 +1228,7 @@ body {
 
         &.single {
           .nav-link {
+            text-decoration: none;
             cursor: pointer;
           }
         }
