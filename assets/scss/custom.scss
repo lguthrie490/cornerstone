@@ -420,6 +420,10 @@ body {
     }
 
     .active {
+      // Safari Fix
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
       border-top: 4px solid;
       border-image-slice: 1;
       border-image-source: linear-gradient(90deg, $white, $mainmenu-hover_lightpurple, $white);
