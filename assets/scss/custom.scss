@@ -359,7 +359,7 @@ body {
 }
 
 @media (max-width: $screen-medium) {
-  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post, .pages\/cart, .pages\/page, .pages\/auth\/create-account, .pages\/auth\/login {
+  .pages\/errors\/404, .pages\/search, .pages\/category, .pages\/product, .pages\/blog, .pages\/blog-post, .pages\/cart, .pages\/page, .pages\/auth\/create-account, .pages\/auth\/login, .pages\/auth\/forgot-password {
     margin-top: 140px;
   }
 
