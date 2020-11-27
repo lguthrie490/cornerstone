@@ -29,13 +29,15 @@
                     {{lang 'common.logout'}}
                 </a>
                 {{else}}
-                <a class="navUser-action"
-                   href="#"
-                   aria-label="{{lang 'common.login'}}"
-                   data-reveal-id="loginModal"
-                >
-                    {{lang 'common.login'}}
-                </a>
+                    {{#if page_type '!==' 'login' }}
+                    <a class="navUser-action"
+                       href="#"
+                       aria-label="{{lang 'common.login'}}"
+                       data-reveal-id="loginModal"
+                    >
+                        {{lang 'common.login'}}
+                    </a>
+                    {{/if}}
                 {{#if settings.account_creation_enabled}}
             </li>
             <li class="navUser-item navUser-item--account">

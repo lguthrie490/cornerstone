@@ -5,5 +5,8 @@
     </div>
     {{> components/common/modal}}
     {{> components/common/alert-modal}}
-    {{> components/common/login-modal}}
+    {{#if page_type '!==' 'login' }}
+        {{> components/common/login-modal}}
+        <script>console.log('test')</script>
+    {{/if}}
 </div>
