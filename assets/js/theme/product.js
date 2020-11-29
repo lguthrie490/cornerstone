@@ -26,8 +26,8 @@ export default class Product extends PageManager {
             }
         });
 
-        const originalHeight = $('.readmore-box').css('max-height');
-        this.readMore(originalHeight);
+        const originalMaxHeight = $('.readmore-box').css('max-height');
+        this.readMore(originalMaxHeight);
 
         // Init collapsible
         collapsibleFactory();
@@ -62,6 +62,10 @@ export default class Product extends PageManager {
         const readMore = $('.read-more');
         const readMoreButton = $('.read-more_button');
         const readMoreBox = readMore.parent();
+
+        if (parseInt(readMoreBox.css('height')) < 420) {
+            readMore.css('display', 'none');
+        }
 
         $(readMore).click(() => {
             if (originalHeight === readMoreBox.css('max-height')) {
