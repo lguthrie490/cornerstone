@@ -2043,6 +2043,8 @@ body .modal-background {
       display: flex;
       justify-content: center;
       margin-top: 2rem;
+      // fixes height:auto issue in Safari
+      align-self: flex-start;
 
       @media (max-width: $screen-small) {
         img {
@@ -2057,7 +2059,8 @@ body .modal-background {
     }
 
     img {
-      width: 80%;
+      height: 100%;
+      width: 100%;
       padding: 0 2rem;
     }
 
