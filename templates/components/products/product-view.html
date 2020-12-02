@@ -10,7 +10,7 @@
 
     <section class="productView-details product-info">
         <div class="productView-product">
-            <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+            <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}{{#each product.custom_fields}}{{#if name '===' 'symbol'}}{{{value}}}{{/if}}{{/each}}</h1>
             <p class="productView-subtitle">
                 {{#each product.custom_fields }}
                     {{#if name '===' 'product_subtitle'}}
