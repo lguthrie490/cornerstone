@@ -536,7 +536,7 @@ body {
   }
 }
 
-.banner-signup, .banner-practitioner, .banner-footer, .banner-shopall-mobile, .product-testimonials {
+.megamenu-dropdown, .banner-signup, .banner-practitioner, .banner-footer, .banner-shopall-mobile, .product-testimonials {
   overflow: auto;
   width: 100vw;
   max-width: 100vw;
@@ -1255,13 +1255,8 @@ body {
         .megamenu-dropdown {
           display: none;
           background-color: white;
-          width: 99.3vw;
-          max-width: 100vw;
           position: absolute;
-          left: 50%;
-          right: 50%;
-          margin-left: -50vw;
-          margin-right: -50vw;
+          width: 99.999vw;
 
           .megamenu-dropdown_content {
             border-top: 4px solid;
@@ -1270,11 +1265,7 @@ body {
             padding-top: 1rem;
           }
 
-
-
           .megamenu-dropdown_content {
-
-
             .card {
               display: flex;
               justify-content: space-evenly;
@@ -1533,7 +1524,7 @@ body .modal-background {
 
 .footer {
   background-color: $darkblue2;
-  padding: 3rem 0 0;
+  padding: 1.5rem 0 0;
   border-top: 0;
 
   h5 {
@@ -1556,6 +1547,7 @@ body .modal-background {
     justify-content: center;
     max-width: 100vw;
     flex-wrap: wrap;
+    margin-bottom: 1.5rem;
 
     .footer-info-heading, .footer-info-list li {
       margin-bottom: 0.6rem;
@@ -1564,13 +1556,16 @@ body .modal-background {
     .footer-info-col {
       padding-left: 9%;
       padding-right: 2rem;
+      margin-bottom: 0;
 
       img {
         margin-bottom: 2rem;
-        width: 300px;
+        width: 220px;
       }
 
       @media (max-width: $screen-small) {
+        text-align: center;
+
         p {
           text-align: left;
         }
@@ -1578,30 +1573,54 @@ body .modal-background {
     }
 
     .footer-info-links {
-      width: 25%;
-      padding-left: 4rem;
-      border-right: 2px solid $lightblue2;
+      width: 30%;
+      height: 100%;
+      padding-left: 2rem;
+      padding-right: 0;
+      border-left: 2px solid $lightblue2;
 
-      &:last-child {
+      &:first-child {
         border: none;
       }
 
       @media (max-width: $screen-small) {
-        padding-left: 2rem;
+        padding-left: 0;
+        height: auto;
+        text-align: center;
+      }
+      @media (max-width: 646px) {
+        border: none;
       }
     }
 
     .footer-half {
-      width: 50%;
+      width: 35%;
+      padding-left: 2rem;
+      padding-right: 0;
 
       p {
         color: $white;
+        font-size: 12px;
+      }
+
+      @media (max-width: $screen-small) {
+        width: 100%;
+        padding-right: 2rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .footer-column-container {
+      width: 65%;
+      padding-top: 1rem;
+
+      @media (max-width: $screen-small) {
+        width: 100%;
       }
     }
 
     .footer-info-links, .footer-half {
       @media (max-width: $screen-small) {
-        width: 100%;
         max-width: 100vw;
         border: none;
       }
@@ -1609,6 +1628,7 @@ body .modal-background {
 
     .footer-links-container {
       display: inline-block;
+
       .footer-info-links {
         width: 50%;
         padding-left: 3rem;
@@ -1620,10 +1640,15 @@ body .modal-background {
     display: flex;
     align-content: space-between;
     flex-wrap: wrap;
+    padding-bottom: 1.5rem;
 
     .social-box {
-      width: 50%;
-      padding-left: 9%;
+      width: 35%;
+      padding-left: 1rem;
+
+      .social-container {
+        float: left;
+      }
 
       a {
         text-decoration: none;
@@ -1637,58 +1662,20 @@ body .modal-background {
           fill: $white;
         }
       }
-
-      div {
-        height: 44px;
-        width: 44px;
-        float: left;
-        margin-right: 1rem;
-      }
-
-      //@todo replace w svg
-      .linkedin {
-        background: url("/assets/icons/social/1x/linkedin.png") no-repeat;
-
-        &:hover {
-          background: url("/assets/icons/social/1x/linkedin-hover.png") no-repeat;
-        }
-      }
-
-      .facebook {
-        background: url("/assets/icons/social/1x/facebook.png") no-repeat;
-
-        &:hover {
-          background: url("/assets/icons/social/1x/facebook-hover.png") no-repeat;
-        }
-      }
-
-      .instagram {
-        background: url("/assets/icons/social/1x/instagram.png") no-repeat;
-
-        &:hover {
-          background: url("/assets/icons/social/1x/instagram-hover.png") no-repeat;
-        }
-      }
-
-      .youtube {
-        background: url("/assets/icons/social/1x/youtube.png") no-repeat;
-
-        &:hover {
-          background: url("/assets/icons/social/1x/youtube-hover.png") no-repeat;
-        }
-      }
-
     }
 
     .fda-border-box {
       display: block;
-      max-width: 45%;
+      width: 55%;
+      margin-left: 2rem;
       border: 2px solid $white;
-      margin-bottom: 2rem;
       padding: 1px 8px;
       color: $white;
       font-weight: bold;
 
+      @media (max-width: $screen-small) {
+        margin-right: 2rem;
+      }
     }
 
     p {
