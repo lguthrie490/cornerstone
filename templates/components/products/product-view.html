@@ -31,7 +31,7 @@
                         {{> components/common/login-for-pricing}}
                     {{/or}}
                 </div>
-
+                {{#if product.num_reviews '>' 0}}
                 <div class="productView-rating"{{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}{{/if}}>
                     {{#if settings.show_product_rating}}
                         {{#if product.num_reviews '>' 0}}
@@ -53,7 +53,7 @@
                         </span>
                     {{/if}}
                 </div>
-
+                {{/if}}
                 <div class="productView-stock">
                     {{#if product.can_purchase '===' true}}
                         <p>in stock</p>
