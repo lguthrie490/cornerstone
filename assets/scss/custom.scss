@@ -536,7 +536,7 @@ body {
   }
 }
 
-.banner-signup, .banner-practitioner, .banner-footer, .banner-shopall-mobile, .product-testimonials {
+.megamenu-dropdown, .banner-signup, .banner-practitioner, .banner-footer, .banner-shopall-mobile, .product-testimonials {
   overflow: auto;
   width: 100vw;
   max-width: 100vw;
@@ -1255,13 +1255,8 @@ body {
         .megamenu-dropdown {
           display: none;
           background-color: white;
-          width: 99.3vw;
-          max-width: 100vw;
           position: absolute;
-          left: 50%;
-          right: 50%;
-          margin-left: -50vw;
-          margin-right: -50vw;
+          width: 99.999vw;
 
           .megamenu-dropdown_content {
             border-top: 4px solid;
@@ -1270,11 +1265,7 @@ body {
             padding-top: 1rem;
           }
 
-
-
           .megamenu-dropdown_content {
-
-
             .card {
               display: flex;
               justify-content: space-evenly;
@@ -1556,7 +1547,7 @@ body .modal-background {
     justify-content: center;
     max-width: 100vw;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     .footer-info-heading, .footer-info-list li {
       margin-bottom: 0.6rem;
@@ -1649,7 +1640,7 @@ body .modal-background {
     display: flex;
     align-content: space-between;
     flex-wrap: wrap;
-    padding-bottom: 1rem;
+    padding-bottom: 1.5rem;
 
     .social-box {
       width: 35%;
@@ -1678,14 +1669,9 @@ body .modal-background {
       width: 55%;
       margin-left: 2rem;
       border: 2px solid $white;
-      margin-bottom: 2rem;
       padding: 1px 8px;
       color: $white;
       font-weight: bold;
-
-      p {
-        //font-size: 10px;
-      }
 
       @media (max-width: $screen-small) {
         margin-right: 2rem;
