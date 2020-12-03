@@ -15,7 +15,7 @@ const GET_FEATURED_PRODUCTS = gql`
                         entityId
                         path
                         name
-                        customFields (names: "featured_description") {
+                        customFields {
                             edges {
                                 node {
                                     entityId
@@ -98,7 +98,7 @@ function centerProductOutputs(product, featuredDescription) {
     document.getElementById('centerProductsOutput').innerHTML += productHtml;
 }
 
-function rightProductOutputs(product, index, featuredDescription) {
+function rightProductOutputs(product, index, productSubtitle) {
     let productHtml = `
     <article class="card right-list">
         <div class="card-body">
@@ -107,7 +107,7 @@ function rightProductOutputs(product, index, featuredDescription) {
                     <a href="${product.node.path}">${product.node.name}</a>
                 </h4>
                 <div class="card-summary" data-test-info-type="price">
-                    ${featuredDescription}
+                    ${productSubtitle}
                     <br>
                     <a href="${product.node.path}">Learn More »</a>
                 </div>
@@ -134,7 +134,7 @@ function rightProductOutputs(product, index, featuredDescription) {
 /**
  *
  * @param product
- * @param featuredDescription
+ * @param String featuredDescription
  */
 function mobileProductsOutput(product, featuredDescription) {
     let productHtml = `
@@ -157,25 +157,24 @@ function mobileProductsOutput(product, featuredDescription) {
 }
 
 /**
+ * Note: you need join('') in order to not return commas in map()
  *
  * @param customFields
+ * @param name
  * @returns {string}
  */
-function getFeaturedDescriptionValue(customFields) {
-    return customFields.edges.map(
-        (node) => getFeaturedDescription(node)
-    ).toString();
-}
+function getCustomFieldValue(customFields, name) {
+    let custom = customFields;
 
-/**
- *
- * @param node
- * @returns {*}
- */
-function getFeaturedDescription(node) {
-    if (node.node.name === "featured_description") {
-        return node.node.value;
-    }
+    return customFields.edges.map(
+        (nodeObject) => {
+            if (nodeObject.node.name === name) {
+                let nodeval = nodeObject.node.value;
+
+                return nodeObject.node.value;
+            }
+        }
+    ).join('');
 }
 
 /**
@@ -195,7 +194,8 @@ function reduceData(data) {
  * @param index
  */
 function productOutput(product, index) {
-    let featuredDescriptionValue = getFeaturedDescriptionValue(product.node.customFields);
+    let featuredDescriptionValue = getCustomFieldValue(product.node.customFields, "featured_description");
+    let productSubtitleValue = getCustomFieldValue(product.node.customFields, "product_subtitle");
 
     mobileProductsOutput(product, featuredDescriptionValue);
 
@@ -215,7 +215,7 @@ function productOutput(product, index) {
     case 8:
     case 9:
     case 10:
-        rightProductOutputs(product, index, featuredDescriptionValue)
+        rightProductOutputs(product, index, productSubtitleValue)
         break;
     default:
         break;
