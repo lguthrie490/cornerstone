@@ -1159,7 +1159,7 @@ body {
       display: flex;
       justify-content: center;
       align-content: space-between;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
 
       .column-health_functions {
         width: 14.28%;
@@ -1262,7 +1262,7 @@ body {
             border-top: 4px solid;
             border-image-slice: 1;
             border-image-source: linear-gradient(90deg, $white, $mainmenu-hover_lightpurple, $white);
-            padding-top: 1rem;
+            padding-top: 1.7rem;
           }
 
           .megamenu-dropdown_content {
